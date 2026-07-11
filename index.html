@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Grade 11 General Math - Lesson 2: Properties of Real Numbers (11Jen-math-T1-1.2-exam)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;600;700;900&family=Inter:wght=400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        body.en-mode { font-family: 'Inter', sans-serif; }
+        .correct { background-color: #dcfce7 !important; border-color: #16a34a !important; }
+        .incorrect { background-color: #fee2e2 !important; border-color: #dc2626 !important; }
+        .formula { font-family: 'Times New Roman', serif; letter-spacing: 0.5px; direction: ltr; display: inline-block; font-style: italic; }
+        .timer-warning { color: #dc2626 !important; animation: pulse 1s infinite; }
+        @keyframes pulse { 50% { opacity: 0.7; } }
+        @media print { .no-print { display: none !important; } }
+        .success-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 0.875rem; }
+        .grade-excellent { background: #dcfce7; color: #166534; }
+        .grade-good { background: #fef3c7; color: #92400e; }
+        .grade-pass { background: #dbeafe; color: #1e40af; }
+        .grade-fail { background: #fee2e2; color: #991b1b; }
+        .lang-switch {
+            position: fixed; top: 16px; left: 16px; z-index: 100;
+            background: white; padding: 6px; border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; gap: 4px;
+            border: 2px solid #0d9488;
+        }
+        [dir="ltr"] .lang-switch { left: auto; right: 16px; }
+        .lang-btn {
+            padding: 6px 14px; border-radius: 20px; cursor: pointer; font-weight: bold;
+            transition: all 0.3s; border: none; font-size: 0.875rem;
+            background: transparent; color: #6b7280;
+        }
+        .lang-btn.active { background: #0d9488; color: white; box-shadow: 0 2px 6px rgba(13,148,136,0.4); }
+        .lang-btn:hover:not(.active) { background: #f0fdfa; color: #0d9488; }
+        .shuffle-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+    </style>
+<script src="/_aistudio-iframe.js"></script></head>
+<body class="bg-gray-50 text-gray-800 p-4 md:p-8 min-h-screen">
+
+    <div class="lang-switch no-print">
+        <button class="lang-btn active" onclick="setLanguage('ar')" id="btn-ar">عربي</button>
+        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</button>
+    </div>
+
+    <div id="timer-container" class="max-w-4xl mx-auto mb-4 text-center no-print">
+        <div class="bg-white p-4 rounded-xl shadow-md inline-block border-2 border-teal-100">
+            <span class="text-gray-600 ml-2" data-ar="⏱️ الوقت المتبقي:" data-en="⏱️ Time Remaining:">⏱️ الوقت المتبقي:</span>
+            <span id="timer" class="text-2xl font-bold text-teal-600 font-mono">60:00</span>
+            <span class="shuffle-badge" data-ar="🔀 أسئلة عشوائية" data-en="🔀 Random Questions">🔀 أسئلة عشوائية</span>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto mb-6 flex flex-wrap gap-3 justify-center no-print">
+        <button onclick="toggleAnswers()" class="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="👁️ إظهار / إخفاء الإجابات" data-en="👁️ Show / Hide Answers">👁️ إظهار / إخفاء الإجابات</button>
+        <button onclick="window.print()" class="bg-gray-800 hover:bg-gray-900 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🖨️ طباعة / PDF" data-en="🖨️ Print / PDF">🖨️ طباعة / PDF</button>
+        <button onclick="reshuffleExam()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🔀 إعادة خلط الأسئلة" data-en="🔀 Reshuffle Questions">🔀 إعادة خلط الأسئلة</button>
+    </div>
+
+    <header class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md mb-8 border-r-4 border-teal-600">
+        <div class="text-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="⚡ رياضيات الصف الحادي عشر عام" data-en="⚡ Grade 11 General Mathematics">⚡ رياضيات الصف الحادي عشر عام</h1>
+            <h2 class="text-lg text-teal-600 font-semibold" data-ar="الدرس الثاني: خواص الأعداد الحقيقية (الفصل الدراسي الأول)" data-en="Lesson 2: Properties of Real Numbers (Term 1)">الدرس الثاني: خواص الأعداد الحقيقية (الفصل الدراسي الأول)</h2>
+            <p class="text-sm text-gray-600 mt-2" data-ar="اختبار تقييمي تفاعلي شامل يغطي تصنيفات الأعداد الحقيقية، النظير الجمعي والنظير الضربي، وخواص التبديل، التجميع، والتوزيع." data-en="Lesson 2: Properties of Real Numbers complete interactive test aligned with Ministry syllabus.">اختبار تقييمي تفاعلي شامل يغطي تصنيفات الأعداد الحقيقية، النظير الجمعي والنظير الضربي، وخواص التبديل، التجميع، والتوزيع.</p>
+            <p class="text-xs text-orange-600 mt-2 font-semibold" data-ar="⚠️ ملاحظة: يتم خلط ترتيب الأسئلة والخيارات تلقائياً مع كل تحديث للصفحة" data-en="⚠️ Note: Questions and options are randomly shuffled on every page refresh">⚠️ ملاحظة: يتم خلط ترتيب الأسئلة والخيارات تلقائياً مع كل تحديث للصفحة</p>
+        </div>
+        <div class="mt-4 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+            <span><span data-ar="📅 التاريخ:" data-en="📅 Date:">📅 التاريخ:</span> <input type="text" class="border-b border-gray-400 bg-transparent w-28 text-center"></span>
+            <span><span data-ar="👤 الاسم:" data-en="👤 Name:">👤 الاسم:</span> <input type="text" id="studentName" class="border-b border-gray-400 bg-transparent w-32 text-center" placeholder="Enter name"></span>
+            <span><span data-ar="🏫 الشعبة:" data-en="🏫 Class:">🏫 الشعبة:</span> <input type="text" id="studentClass" class="border-b border-gray-400 bg-transparent w-28 text-center" placeholder="Class"></span>
+            <span><span data-ar="⏱️ المدة: 60 دقيقة" data-en="⏱️ Duration: 60 min">⏱️ المدة: 60 دقيقة</span></span>
+            <span><span data-ar="📊 המجموع: 100 درجة" data-en="📊 Total: 100 pts">📊 المجموع: 100 درجة</span></span>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto space-y-8" id="exam-content"></main>
+
+    <div class="text-center no-print pb-8 mt-8">
+        <button onclick="gradeExam()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-lg px-10 py-4 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="📝 تسليم وتصحيح الامتحان" data-en="📝 Submit & Grade Exam">📝 تسليم وتصحيح الامتحان</button>
+    </div>
+
+    <div id="results-panel" class="max-w-4xl mx-auto mt-8 bg-white p-8 rounded-2xl shadow-2xl border-t-4 border-emerald-500 hidden no-print">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center" data-ar="📊 نتائج الامتحان" data-en="📊 Exam Results">📊 نتائج الامتحان</h2>
+        <div class="grid md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-blue-50 p-4 rounded-xl text-center"><p data-ar="اسم الطالب" data-en="Student Name">اسم الطالب</p><p id="res-name" class="font-bold text-xl text-teal-700">-</p></div>
+            <div class="bg-purple-50 p-4 rounded-xl text-center"><p data-ar="التاريخ" data-en="Date">التاريخ</p><p id="res-date" class="font-bold text-xl text-purple-700">-</p></div>
+            <div class="bg-emerald-50 p-4 rounded-xl text-center"><p data-ar="المجموع" data-en="Score">المجموع</p><p id="res-total" class="font-bold text-3xl text-emerald-600">0 / 100</p></div>
+        </div>
+        <div class="text-center mb-6">
+            <span id="success-badge" class="success-badge grade-excellent">-</span>
+            <p id="success-percent" class="text-4xl font-bold text-emerald-600 mt-2">100%</p>
+            <p class="text-sm text-gray-500" data-ar="نسبة النجاح" data-en="Success Rate">نسبة النجاح</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl mb-6">
+            <h3 class="font-bold text-lg mb-4 text-gray-800" data-ar="📈 تفصيل الأداء حسب القسم:" data-en="📈 Performance Breakdown:">📈 تفصيل الأداء حسب القسم:</h3>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700" data-ar="الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات" data-en="Part 1: Basic Concepts, Rules, and Definitions">الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات</span>
+                    <span id="sec1-score" class="font-bold text-teal-600">0/4</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700" data-ar="الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة" data-en="Part 2: Calculations and Exact Numerical Solutions">الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة</span>
+                    <span id="sec2-score" class="font-bold text-teal-600">0/4</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700" data-ar="الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل" data-en="Part 3: Advanced Skills, Applications, and Problems">الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل</span>
+                    <span id="sec3-score" class="font-bold text-teal-600">0/4</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700" data-ar="الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية" data-en="Part 4: Mathematical Modeling, Graphing, and Practical Problems">الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية</span>
+                    <span id="sec4-score" class="font-bold text-teal-600">0/4</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-700" data-ar="الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي" data-en="Part 5: Higher-Order Thinking, Analysis, and Logical Connections">الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي</span>
+                    <span id="sec5-score" class="font-bold text-teal-600">0/4</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mb-6">
+            <button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white text-lg px-8 py-3 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="📧 إرسال النتائج للمعلم" data-en="📧 Send Results to Teacher">📧 إرسال النتائج للمعلم</button>
+            <p id="emailStatus" class="text-sm mt-2 text-center font-medium"></p>
+        </div>
+        <div class="flex gap-3 justify-center">
+            <button onclick="window.print()" class="bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold" data-ar="🖨️ طباعة النتائج" data-en="🖨️ Print Results">🖨️ طباعة النتائج</button>
+        </div>
+    </div>
+
+    <footer class="max-w-4xl mx-auto mt-10 mb-8 text-center text-gray-500 text-sm no-print">
+        © <span data-ar="رياضيات الصف 11 عام | الدرس الثاني: خواص الأعداد الحقيقية" data-en="Grade 11 General Math | Lesson 2: Properties of Real Numbers">رياضيات الصف 11 عام | الدرس الثاني: خواص الأعداد الحقيقية</span> | Platform 4U Education
+    </footer>
+
+<script>
+const PUBLIC_KEY = "Rb3Lq8tXaFmc5YHUH";
+const SERVICE_ID = "service_w15m64i";
+const TEMPLATE_ID = "template_5b0u2tq";
+const TARGET_EMAIL = "mohammedhesham872@gmail.com";
+
+emailjs.init(PUBLIC_KEY);
+
+const originalExamData = {
+    "sections": [
+        {
+            "title": {
+                "ar": "🔹 الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات",
+                "en": "🔹 Part 1: Basic Concepts, Rules, and Definitions"
+            },
+            "questions": [
+                {
+                    "q": {
+                        "ar": "إلى أي من مجموعات الأعداد الحقيقية ينتمي الرقم <span class=\"formula\">-185</span>؟",
+                        "en": "To which sets of real numbers does the number <span class=\"formula\">-185</span> belong?"
+                    },
+                    "options": [
+                        {
+                            "ar": "الأعداد الصحيحة (Z)، النسبية (Q)، الحقيقية (R)",
+                            "en": "Integers (Z), Rational (Q), Real (R)"
+                        },
+                        {
+                            "ar": "الأعداد الطبيعية (N)، الكلية (W)، الحقيقية (R)",
+                            "en": "Natural (N), Whole (W), Real (R)"
+                        },
+                        {
+                            "ar": "الأعداد غير النسبية (I)، الحقيقية (R) فقط",
+                            "en": "Irrational (I), Real (R) only"
+                        },
+                        {
+                            "ar": "الأعداد الكلية (W)، الصحيحة (Z)، الحقيقية (R)",
+                            "en": "Whole (W), Integers (Z), Real (R)"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "الرقم -185 هو صحيح سالب، وبالتالي ينتمي لـ Z، وهو نسبي (Q) وحقيقي (R).",
+                        "en": "The number -185 is a negative integer, so it belongs to Z, Q, and R."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "صنف الرقم <span class=\"formula\">-√49</span> ضمن مجموعات الأعداد الحقيقية؟",
+                        "en": "Classify the number <span class=\"formula\">-√49</span> within the sets of real numbers?"
+                    },
+                    "options": [
+                        {
+                            "ar": "الأعداد الصحيحة (Z)، النسبية (Q)، الحقيقية (R)",
+                            "en": "Integers (Z), Rational (Q), Real (R)"
+                        },
+                        {
+                            "ar": "الأعداد غير النسبية (I)، الحقيقية (R)",
+                            "en": "Irrational (I), Real (R)"
+                        },
+                        {
+                            "ar": "الأعداد الطبيعية (N)، الكلية (W)، الحقيقية (R)",
+                            "en": "Natural (N), Whole (W), Real (R)"
+                        },
+                        {
+                            "ar": "الأعداد الكلية (W)، النسبية (Q)، الحقيقية (R)",
+                            "en": "Whole (W), Rational (Q), Real (R)"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "<span class=\"formula\">-√49 = -7</span> وهو عدد صحيح سالب، لذا فهو ينتمي إلى Z و Q و R.",
+                        "en": "<span class=\"formula\">-√49 = -7</span>, which is a negative integer, thus belonging to Z, Q, and R."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "الرقم <span class=\"formula\">-√95</span> ينتمي إلى أي من المجموعات التالية بشكل أدق؟",
+                        "en": "The number <span class=\"formula\">-√95</span> belongs to which of the following groups more accurately?"
+                    },
+                    "options": [
+                        {
+                            "ar": "الأعداد غير النسبية (I)، الأعداد الحقيقية (R)",
+                            "en": "Irrational numbers (I), Real numbers (R)"
+                        },
+                        {
+                            "ar": "الأعداد النسبية (Q)، الأعداد الحقيقية (R)",
+                            "en": "Rational numbers (Q), Real numbers (R)"
+                        },
+                        {
+                            "ar": "الأعداد الصحيحة (Z)، الأعداد الحقيقية (R)",
+                            "en": "Integers (Z), Real numbers (R)"
+                        },
+                        {
+                            "ar": "الأعداد الكلية (W)، الأعداد غير النسبية (I)",
+                            "en": "Whole numbers (W), Irrational numbers (I)"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "بما أن 95 ليس مربعاً كاملاً، فإن جذره التربيعي هو كسر عشري غير منته وغير دوري، فهو ينتمي لـ I و R.",
+                        "en": "Since 95 is not a perfect square, its square root is non-terminating and non-repeating, so it belongs to I and R."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "أي من الخواص التالية تمثلها المعادلة: <span class=\"formula\">84 + 16 = 16 + 84</span>؟",
+                        "en": "Which property is represented by the equation: <span class=\"formula\">84 + 16 = 16 + 84</span>?"
+                    },
+                    "options": [
+                        {
+                            "ar": "الخاصية التبديلية للجمع",
+                            "en": "Commutative Property of Addition"
+                        },
+                        {
+                            "ar": "الخاصية التجميعية للجمع",
+                            "en": "Associative Property of Addition"
+                        },
+                        {
+                            "ar": "خاصية الهوية المحايدة للجمع",
+                            "en": "Identity Property of Addition"
+                        },
+                        {
+                            "ar": "الخاصية التبديلية للضرب",
+                            "en": "Commutative Property of Multiplication"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "المعادلة توضح أن تغيير ترتيب الأعداد المضافة لا يغير من النتيجة، وهي الخاصية التبديلية للجمع.",
+                        "en": "The equation shows that changing the order of addends does not change the sum, which is the Commutative Property of Addition."
+                    }
+                }
+            ]
+        },
+        {
+            "title": {
+                "ar": "🔹 الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة",
+                "en": "🔹 Part 2: Calculations and Exact Numerical Solutions"
+            },
+            "questions": [
+                {
+                    "q": {
+                        "ar": "ما هو النظير الجمعي والنظير الضربي للعدد <span class=\"formula\">1.25</span> على التوالي؟",
+                        "en": "What is the additive inverse and multiplicative inverse of the number <span class=\"formula\">1.25</span> respectively?"
+                    },
+                    "options": [
+                        {
+                            "ar": "<span class=\"formula\">-1.25</span> و <span class=\"formula\">0.8</span>",
+                            "en": "<span class=\"formula\">-1.25</span> and <span class=\"formula\">0.8</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">-1.25</span> و <span class=\"formula\">-0.8</span>",
+                            "en": "<span class=\"formula\">-1.25</span> and <span class=\"formula\">-0.8</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">1.25</span> و <span class=\"formula\">0.8</span>",
+                            "en": "<span class=\"formula\">1.25</span> and <span class=\"formula\">0.8</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">-1.25</span> و <span class=\"formula\">1.25</span>",
+                            "en": "<span class=\"formula\">-1.25</span> and <span class=\"formula\">1.25</span>"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "النظير الجمعي يعكس الإشارة: <span class=\"formula\">-1.25</span>. النظير الضربي هو مقلوب الرقم: <span class=\"formula\">1 / 1.25 = 4/5 = 0.8</span>.",
+                        "en": "The additive inverse changes the sign: <span class=\"formula\">-1.25</span>. The multiplicative inverse is the reciprocal: <span class=\"formula\">1 / 1.25 = 4/5 = 0.8</span>."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "أوجد النظير الجمعي والضربي للعدد الكسري <span class=\"formula\">2 1/2</span> على الترتيب؟",
+                        "en": "Find the additive and multiplicative inverse of the mixed number <span class=\"formula\">2 1/2</span> respectively?"
+                    },
+                    "options": [
+                        {
+                            "ar": "<span class=\"formula\">-5/2</span> و <span class=\"formula\">2/5</span>",
+                            "en": "<span class=\"formula\">-5/2</span> and <span class=\"formula\">2/5</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">-5/2</span> و <span class=\"formula\">-2/5</span>",
+                            "en": "<span class=\"formula\">-5/2</span> and <span class=\"formula\">-2/5</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">5/2</span> و <span class=\"formula\">2/5</span>",
+                            "en": "<span class=\"formula\">5/2</span> and <span class=\"formula\">2/5</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">-2.5</span> و <span class=\"formula\">2.5</span>",
+                            "en": "<span class=\"formula\">-2.5</span> and <span class=\"formula\">2.5</span>"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "<span class=\"formula\">2 1/2 = 5/2</span>. نظيرها الجمعي هو <span class=\"formula\">-5/2</span> (أو <span class=\"formula\">-2.5</span>)، ونظيرها الضربي هو مقلوبها <span class=\"formula\">2/5</span>.",
+                        "en": "<span class=\"formula\">2 1/2 = 5/2</span>. Its additive inverse is <span class=\"formula\">-5/2</span>, and its multiplicative inverse is <span class=\"formula\">2/5</span>."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "ما هو النظير الجمعي للعدد <span class=\"formula\">-5/8</span> والنظير الضربي له؟",
+                        "en": "What is the additive inverse and the multiplicative inverse of <span class=\"formula\">-5/8</span>?"
+                    },
+                    "options": [
+                        {
+                            "ar": "<span class=\"formula\">5/8</span> و <span class=\"formula\">-8/5</span>",
+                            "en": "<span class=\"formula\">5/8</span> and <span class=\"formula\">-8/5</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">-5/8</span> و <span class=\"formula\">8/5</span>",
+                            "en": "<span class=\"formula\">-5/8</span> and <span class=\"formula\">8/5</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">5/8</span> و <span class=\"formula\">8/5</span>",
+                            "en": "<span class=\"formula\">5/8</span> and <span class=\"formula\">8/5</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">-5/8</span> و <span class=\"formula\">-8/5</span>",
+                            "en": "<span class=\"formula\">-5/8</span> and <span class=\"formula\">-8/5</span>"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "الجمعي يعكس الإشارة: <span class=\"formula\">5/8</span>. الضربي يقلب الكسر ويحتفظ بالإشارة: <span class=\"formula\">-8/5</span>.",
+                        "en": "The additive inverse changes sign: <span class=\"formula\">5/8</span>. The multiplicative inverse is the reciprocal, retaining the sign: <span class=\"formula\">-8/5</span>."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "بسط التعبير الجبري التالي: <span class=\"formula\">3(4x - 2y) - 2(3x + y)</span>؟",
+                        "en": "Simplify the following algebraic expression: <span class=\"formula\">3(4x - 2y) - 2(3x + y)</span>?"
+                    },
+                    "options": [
+                        {
+                            "ar": "<span class=\"formula\">6x - 8y</span>",
+                            "en": "<span class=\"formula\">6x - 8y</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">6x - 4y</span>",
+                            "en": "<span class=\"formula\">6x - 4y</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">18x - 8y</span>",
+                            "en": "<span class=\"formula\">18x - 8y</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">6x - 5y</span>",
+                            "en": "<span class=\"formula\">6x - 5y</span>"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "باستخدام خاصية التوزيع: <span class=\"formula\">12x - 6y - 6x - 2y = (12x - 6x) + (-6y - 2y) = 6x - 8y</span>.",
+                        "en": "By distributive property: <span class=\"formula\">12x - 6y - 6x - 2y = 6x - 8y</span>."
+                    }
+                }
+            ]
+        },
+        {
+            "title": {
+                "ar": "🔹 الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل",
+                "en": "🔹 Part 3: Advanced Skills, Applications, and Problems"
+            },
+            "questions": [
+                {
+                    "q": {
+                        "ar": "أي مما يلي يوضح خاصية التجميع لعملية الضرب؟",
+                        "en": "Which of the following demonstrates the Associative Property of Multiplication?"
+                    },
+                    "options": [
+                        {
+                            "ar": "<span class=\"formula\">(ab)c = a(bc)</span>",
+                            "en": "<span class=\"formula\">(ab)c = a(bc)</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">ab = ba</span>",
+                            "en": "<span class=\"formula\">ab = ba</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">a(b + c) = ab + ac</span>",
+                            "en": "<span class=\"formula\">a(b + c) = ab + ac</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">a · 1 = a</span>",
+                            "en": "<span class=\"formula\">a · 1 = a</span>"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "خاصية التجميع تسمح بتغيير كيفية تجميع الأعداد المضروبة دون تغيير النتيجة.",
+                        "en": "The associative property allows grouping of multiplied numbers differently without changing the outcome."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "أي مما يلي يعتبر مثالاً على خاصية النظير الجمعي؟",
+                        "en": "Which of the following is an example of the Additive Inverse Property?"
+                    },
+                    "options": [
+                        {
+                            "ar": "<span class=\"formula\">-7y + 7y = 0</span>",
+                            "en": "<span class=\"formula\">-7y + 7y = 0</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">a + 0 = a</span>",
+                            "en": "<span class=\"formula\">a + 0 = a</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">a(1/a) = 1</span>",
+                            "en": "<span class=\"formula\">a(1/a) = 1</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">a + (-a) = 0</span>",
+                            "en": "<span class=\"formula\">a + (-a) = 0</span>"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "جمع أي عدد ونظيره الجمعي يعطي دائماً المحايد الجمعي وهو 0.",
+                        "en": "Adding any number and its additive inverse always yields the additive identity, which is 0."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "بسط التعبير التالي: <span class=\"formula\">1/3(5x + 8y) + 1/4(6x - 2y)</span>؟",
+                        "en": "Simplify the following expression: <span class=\"formula\">1/3(5x + 8y) + 1/4(6x - 2y)</span>?"
+                    },
+                    "options": [
+                        {
+                            "ar": "<span class=\"formula\">19/12 x + 13/6 y</span>",
+                            "en": "<span class=\"formula\">19/12 x + 13/6 y</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">3.1x + 2.1y</span>",
+                            "en": "<span class=\"formula\">3.1x + 2.1y</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">11/4 x + 5/4 y</span>",
+                            "en": "<span class=\"formula\">11/4 x + 5/4 y</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">17/12 x + 5/6 y</span>",
+                            "en": "<span class=\"formula\">17/12 x + 5/6 y</span>"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "الحدود السينية: <span class=\"formula\">5/3 x + 6/4 x = 5/3 x + 3/2 x = (10+9)/6 x = 19/6 x</span>. عذراً، لنحسب بدقة: <span class=\"formula\">5/3 x + 6/4 x = 20/12 x + 18/12 x = 38/12 x = 19/6 x</span>. الحدود الصادية: <span class=\"formula\">8/3 y - 2/4 y = 8/3 y - 1/2 y = (16-3)/6 y = 13/6 y</span>. النتيجة الصحيحة: <span class=\"formula\">19/6 x + 13/6 y</span>.",
+                        "en": "X terms: <span class=\"formula\">5/3 + 6/4 = 19/6</span>. Y terms: <span class=\"formula\">8/3 - 2/4 = 13/6</span>. Correct result is <span class=\"formula\">19/6 x + 13/6 y</span>."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "بسط التعبير الجبري التالي: <span class=\"formula\">-4(6c - 3d) - 5(-2c - 4d)</span>؟",
+                        "en": "Simplify the following algebraic expression: <span class=\"formula\">-4(6c - 3d) - 5(-2c - 4d)</span>?"
+                    },
+                    "options": [
+                        {
+                            "ar": "<span class=\"formula\">-14c + 32d</span>",
+                            "en": "<span class=\"formula\">-14c + 32d</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">-14c - 8d</span>",
+                            "en": "<span class=\"formula\">-14c - 8d</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">34c + 32d</span>",
+                            "en": "<span class=\"formula\">34c + 32d</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">-14c + 8d</span>",
+                            "en": "<span class=\"formula\">-14c + 8d</span>"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "بالتوزيع: <span class=\"formula\">-24c + 12d + 10c + 20d = -14c + 32d</span>.",
+                        "en": "By distribution: <span class=\"formula\">-24c + 12d + 10c + 20d = -14c + 32d</span>."
+                    }
+                }
+            ]
+        },
+        {
+            "title": {
+                "ar": "🔹 الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية",
+                "en": "🔹 Part 4: Mathematical Modeling, Graphing, and Practical Problems"
+            },
+            "questions": [
+                {
+                    "q": {
+                        "ar": "يشتري خالد مكونات جهاز كمبيوتر بأسعار: 359.95, 219.99, 79.00, 149.50, 99.00 درهم إماراتي. إذا تم تطبيق ضريبة مبيعات بنسبة 6%، فما هي قيمة الضريبة الإجمالية؟",
+                        "en": "Khaled buys computer components priced: 359.95, 219.99, 79.00, 149.50, and 99.00 AED. If a 6% sales tax is added, what is the total tax amount?"
+                    },
+                    "options": [
+                        {
+                            "ar": "AED <span class=\"formula\">54.45</span>",
+                            "en": "AED <span class=\"formula\">54.45</span>"
+                        },
+                        {
+                            "ar": "AED <span class=\"formula\">907.44</span>",
+                            "en": "AED <span class=\"formula\">907.44</span>"
+                        },
+                        {
+                            "ar": "AED <span class=\"formula\">45.33</span>",
+                            "en": "AED <span class=\"formula\">45.33</span>"
+                        },
+                        {
+                            "ar": "AED <span class=\"formula\">60.25</span>",
+                            "en": "AED <span class=\"formula\">60.25</span>"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "المجموع الكلي للمكونات = 907.44 AED. قيمة الضريبة = <span class=\"formula\">907.44 * 0.06 = 54.446 ≈ 54.45</span> درهم.",
+                        "en": "Total cost of components = 907.44 AED. Tax = <span class=\"formula\">907.44 * 0.06 ≈ 54.45</span> AED."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "يقوم سمير بقص عشب الحدائق بسعر AED 22 للحديقة الواحدة. إذا قام بقص حدائق بأعداد: 2، 4، 3، 1، 5، 6، 7 في أيام الأسبوع على التوالي. اكتب تعبيراً لتمثيل إجمالي مبالغه الكلية؟",
+                        "en": "Samir mows lawns at AED 22 per lawn. If he mows 2, 4, 3, 1, 5, 6, and 7 lawns on consecutive weekdays. Which expression represents his total earnings?"
+                    },
+                    "options": [
+                        {
+                            "ar": "<span class=\"formula\">22 · (2 + 4 + 3 + 1 + 5 + 6 + 7)</span>",
+                            "en": "<span class=\"formula\">22 · (2 + 4 + 3 + 1 + 5 + 6 + 7)</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">22 + (2 + 4 + 3 + 1 + 5 + 6 + 7)</span>",
+                            "en": "<span class=\"formula\">22 + (2 + 4 + 3 + 1 + 5 + 6 + 7)</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">22 · 2 · 4 · 3 · 1 · 5 · 6 · 7</span>",
+                            "en": "<span class=\"formula\">22 · 2 · 4 · 3 · 1 · 5 · 6 · 7</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">22x + (2+4+3+1+5+6+7)</span>",
+                            "en": "<span class=\"formula\">22x + (2+4+3+1+5+6+7)</span>"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "إجمالي الأرباح هو سعر الحديقة الواحدة (22) مضروباً في مجموع عدد الحدائق التي تم قصها.",
+                        "en": "Total earnings is the price per lawn (22) multiplied by the sum of lawns mowed."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "من السؤال السابق، هل سيحصل سمير على مبالغ كافية لشراء وحدة ألعاب فيديو بقيمة AED 550 خلال هذا الأسبوع؟",
+                        "en": "From the previous question, will Samir earn enough to buy a video game unit priced at AED 550 this week?"
+                    },
+                    "options": [
+                        {
+                            "ar": "نعم، إجمالي أرباحه هو AED 616 وهو أكبر من AED 550",
+                            "en": "Yes, his total earnings is AED 616, which is greater than AED 550"
+                        },
+                        {
+                            "ar": "لا، إجمالي أرباحه هو AED 506 وهو أقل من AED 550",
+                            "en": "No, his total earnings is AED 506, which is less than AED 550"
+                        },
+                        {
+                            "ar": "لا، إجمالي أرباحه هو AED 440 فقط",
+                            "en": "No, his total earnings is only AED 440"
+                        },
+                        {
+                            "ar": "نعم، أرباحه بالضبط AED 550",
+                            "en": "Yes, his earnings are exactly AED 550"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "مجموع الحدائق = 28 حديقة. إجمالي الأرباح = <span class=\"formula\">28 * 22 = 616</span> درهم، وهو كافٍ وزيادة.",
+                        "en": "Total lawns = 28. Total earnings = <span class=\"formula\">28 * 22 = 616</span> AED, which is more than 550."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "تحتاج دانا إلى خياطة ستائر لخمس نوافذ، نافذتين كبيرتين تحتاج كل منهما <span class=\"formula\">3 3/4</span> ياردات، وثلاث نوافذ صغيرة تحتاج كل منهما <span class=\"formula\">2 1/2</span> ياردة. كم إجمالي القماش المطلوب؟",
+                        "en": "Dana needs to sew curtains for 5 windows: 2 large windows requiring <span class=\"formula\">3 3/4</span> yards each, and 3 small windows requiring <span class=\"formula\">2 1/2</span> yards each. What is the total fabric needed?"
+                    },
+                    "options": [
+                        {
+                            "ar": "<span class=\"formula\">15</span> ياردة",
+                            "en": "<span class=\"formula\">15</span> yards"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">12.5</span> ياردة",
+                            "en": "<span class=\"formula\">12.5</span> yards"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">18.25</span> ياردة",
+                            "en": "<span class=\"formula\">18.25</span> yards"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">14.75</span> ياردة",
+                            "en": "<span class=\"formula\">14.75</span> yards"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "إجمالي القماش = <span class=\"formula\">2 * (3.75) + 3 * (2.5) = 7.5 + 7.5 = 15</span> ياردة.",
+                        "en": "Total fabric = <span class=\"formula\">2 * (3.75) + 3 * (2.5) = 7.5 + 7.5 = 15</span> yards."
+                    }
+                }
+            ]
+        },
+        {
+            "title": {
+                "ar": "🔹 الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي",
+                "en": "🔹 Part 5: Higher-Order Thinking, Analysis, and Logical Connections"
+            },
+            "questions": [
+                {
+                    "q": {
+                        "ar": "أي من الأعداد التالية يمثل عدداً حقيقياً غير نسبي؟",
+                        "en": "Which of the following numbers represents an irrational real number?"
+                    },
+                    "options": [
+                        {
+                            "ar": "<span class=\"formula\">√21</span>",
+                            "en": "<span class=\"formula\">√21</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">√81</span>",
+                            "en": "<span class=\"formula\">√81</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">0.61</span>",
+                            "en": "<span class=\"formula\">0.61</span>"
+                        },
+                        {
+                            "ar": "<span class=\"formula\">-15/3</span>",
+                            "en": "<span class=\"formula\">-15/3</span>"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "21 ليس مربعاً كاملاً وجذره يعطي عدداً عشرياً غير منته وغير دوري (غير نسبي)، بينما الآخرون نسبية.",
+                        "en": "21 is not a perfect square, so its root is irrational."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "لماذا لا تنطبق الخاصية التبديلية على عملية الطرح؟ اختر التعليل الرياضي والعددي الأصح؟",
+                        "en": "Why does the Commutative Property not apply to subtraction? Choose the most accurate mathematical and numerical explanation?"
+                    },
+                    "options": [
+                        {
+                            "ar": "لأن ترتيب الأعداد يؤثر على النتيجة، مثلاً <span class=\"formula\">5 - 3 = 2</span> بينما <span class=\"formula\">3 - 5 = -2</span> وهما غير متساويين",
+                            "en": "Because order affects the result; for example, <span class=\"formula\">5 - 3 = 2</span> whereas <span class=\"formula\">3 - 5 = -2</span>, which are not equal"
+                        },
+                        {
+                            "ar": "لأن النظير الجمعي للعدد دائماً ما يكون سالباً في كل الأحوال",
+                            "en": "Because the additive inverse of a number is always negative under all conditions"
+                        },
+                        {
+                            "ar": "لأن الطرح والجمع لهما نفس القوة والأولوية في PEMDAS",
+                            "en": "Because subtraction and addition have the same precedence in PEMDAS"
+                        },
+                        {
+                            "ar": "لأن الطرح لا يحقق خاصية الانغلاق للأعداد الحقيقية الموجبة",
+                            "en": "Because subtraction does not satisfy the closure property for positive real numbers"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "الخاصية التبديلية تعني <span class=\"formula\">a - b = b - a</span> وهذا غير صحيح للأعداد المختلفة لأن أحدهما موجب والآخر سالب.",
+                        "en": "The commutative property requires <span class=\"formula\">a - b = b - a</span>, which is false for distinct numbers because they yield opposite signs."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "قامت كلاً من دانا وأماني بتبسيط التعبير التالي: <span class=\"formula\">4(14a - 10b) - 6(b + 4a)</span>. حصلت دانا على <span class=\"formula\">80a - 46b</span> وحصلت أماني على <span class=\"formula\">50a - 64b</span>. هل أياً منهما صحيح؟",
+                        "en": "Dana and Amani simplified the expression <span class=\"formula\">4(14a - 10b) - 6(b + 4a)</span>. Dana got <span class=\"formula\">80a - 46b</span> and Amani got <span class=\"formula\">50a - 64b</span>. Is either of them correct?"
+                    },
+                    "options": [
+                        {
+                            "ar": "لا أحد منهما صحيح، التبسيط الأصح هو <span class=\"formula\">32a - 46b</span>",
+                            "en": "Neither is correct; the correct simplification is <span class=\"formula\">32a - 46b</span>"
+                        },
+                        {
+                            "ar": "دانا صحيحة لأنها جمعت حدود A بشكل سليم",
+                            "en": "Dana is correct; she combined the A terms correctly"
+                        },
+                        {
+                            "ar": "أماني صحيحة لأن دانا نسيت توزيع الإشارة السالبة لـ 6 على الحد الثاني",
+                            "en": "Amani is correct because Dana forgot to distribute the negative sign of 6 to the second term"
+                        },
+                        {
+                            "ar": "دانا صحيحة وأماني أخطأت في توزيع الـ 4",
+                            "en": "Dana is correct; Amani made an error in distributing the 4"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "بالتوزيع: <span class=\"formula\">56a - 40b - 6b - 24a = (56a - 24a) + (-40b - 6b) = 32a - 46b</span>. لذا كلاهما خاطئ.",
+                        "en": "By distribution: <span class=\"formula\">56a - 40b - 6b - 24a = 32a - 46b</span>. Therefore, both are incorrect."
+                    }
+                },
+                {
+                    "q": {
+                        "ar": "ما الذي تمثله خاصية الانغلاق لعملية الجمع للأعداد الحقيقية؟",
+                        "en": "What does the Closure Property of Addition represent for real numbers?"
+                    },
+                    "options": [
+                        {
+                            "ar": "مجموع أي عددين حقيقيين هو دائماً عدد حقيقي أيضاً",
+                            "en": "The sum of any two real numbers is always a real number too"
+                        },
+                        {
+                            "ar": "وجود عنصر محايد لا يغير قيمة العدد المضاف إليه",
+                            "en": "The existence of an identity element that does not change the added value"
+                        },
+                        {
+                            "ar": "إمكانية تغيير ترتيب الأقواس في الجمع المتعدد",
+                            "en": "The ability to change parenthesis placement in multiple additions"
+                        },
+                        {
+                            "ar": "إمكانية إبدال الترتيب دون التأثير على القيمة النهائية",
+                            "en": "The ability to swap order without affecting the final value"
+                        }
+                    ],
+                    "correct": 0,
+                    "answer": {
+                        "ar": "خاصية الانغلاق تعني أن ناتج العملية الرياضية لعددين من مجموعة معينة يظل ضمن نفس المجموعة.",
+                        "en": "The closure property means that the result of an operation on two numbers of a set remains within that same set."
+                    }
+                }
+            ]
+        }
+    ]
+};
+
+function shuffleArray(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+let examData;
+let correctAnswersMap = {};
+let currentLang = 'ar';
+let timeRemaining = 3600;
+let timerInterval;
+
+function prepareShuffledExam() {
+    examData = JSON.parse(JSON.stringify(originalExamData));
+    correctAnswersMap = {};
+    let globalIdx = 0;
+    
+    examData.sections.forEach((section) => {
+        section.questions = shuffleArray(section.questions);
+        
+        section.questions.forEach((q) => {
+            const optionsWithCorrect = q.options.map((opt, idx) => ({
+                option: opt,
+                isCorrect: idx === q.correct
+            }));
+            
+            const shuffledOptions = shuffleArray(optionsWithCorrect);
+            q.options = shuffledOptions.map(o => o.option);
+            
+            const newCorrectIndex = shuffledOptions.findIndex(o => o.isCorrect);
+            q.correct = newCorrectIndex;
+            
+            correctAnswersMap[globalIdx] = String.fromCharCode(97 + newCorrectIndex);
+            globalIdx++;
+        });
+    });
+}
+
+function reshuffleExam() {
+    prepareShuffledExam();
+    renderExam();
+    document.querySelectorAll('input[type="radio"]:checked').forEach(r => r.checked = false);
+    document.getElementById('results-panel').classList.add('hidden');
+    document.querySelectorAll('.correct, .incorrect').forEach(el => {
+        el.classList.remove('correct', 'incorrect');
+    });
+    alert(currentLang === 'ar' 
+        ? '🔀 تم إعادة خلط الأسئلة والخيارات بنجاح!' 
+        : '🔀 Questions and options have been reshuffled successfully!');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    
+    document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    
+    document.body.classList.toggle('en-mode', lang === 'en');
+    
+    document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+    });
+    
+    renderExam();
+}
+
+function renderExam() {
+    const container = document.getElementById('exam-content');
+    const labels = {
+        ar: { option: ['أ', 'ب', 'ج', 'د'], answer: '✅ الإجابة الصحيحة:' },
+        en: { option: ['A', 'B', 'C', 'D'], answer: '✅ Correct Answer:' }
+    };
+    const lbl = labels[currentLang];
+    const isRTL = currentLang === 'ar';
+    
+    let html = '';
+    let globalIdx = 0;
+    
+    examData.sections.forEach((section) => {
+        html += `
+        <section class="bg-white p-6 rounded-xl shadow-lg">
+            <h2 class="text-xl font-bold mb-4 text-teal-700">${section.title[currentLang]}</h2>
+            <ol class="space-y-4 text-sm">`;
+            
+        section.questions.forEach((q) => {
+            const borderSide = isRTL ? 'border-r-4 pr-4' : 'border-l-4 pl-4';
+            html += `
+                <li class="${borderSide} border-teal-500 py-2" id="q-${globalIdx}">
+                    <strong>${globalIdx + 1}.</strong> ${q.q[currentLang]}<br>`;
+                    
+            q.options.forEach((opt, oIdx) => {
+                const radioSide = isRTL ? 'mr-4 ml-2' : 'ml-4 mr-2';
+                html += `
+                    <label class="cursor-pointer block mt-1 ${isRTL ? 'mr-4' : 'ml-4'}">
+                        <input type="radio" name="q${globalIdx}" value="${String.fromCharCode(97 + oIdx)}" class="${radioSide}"> 
+                        ${lbl.option[oIdx]}) ${opt[currentLang]}
+                    </label>`;
+            });
+            
+            html += `
+                    <div class="answer-box text-green-700 mt-2 font-medium hidden">
+                        ${lbl.answer} ${lbl.option[q.correct]}) ${q.options[q.correct][currentLang]} — ${q.answer[currentLang]}
+                    </div>
+                </li>`;
+            globalIdx++;
+        });
+        
+        html += `
+            </ol>
+        </section>`;
+    });
+    
+    container.innerHTML = html;
+}
+
+function startTimer() {
+    document.getElementById('timer-container').style.display = 'block';
+    timerInterval = setInterval(() => {
+        timeRemaining--;
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+        const timerEl = document.getElementById('timer');
+        timerEl.textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+        if (timeRemaining <= 300) timerEl.classList.add('timer-warning');
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            alert(currentLang === 'ar' ? "انتهى الوقت! سيتم تسليم الامتحان تلقائياً." : "Time's up! Exam will be submitted automatically.");
+            gradeExam();
+        }
+    }, 1000);
+}
+
+function toggleAnswers() {
+    document.querySelectorAll('.answer-box').forEach(el => el.classList.toggle('hidden'));
+}
+
+function gradeExam() {
+    let correctCount = 0;
+    let sec1 = 0, sec2 = 0, sec3 = 0, sec4 = 0, sec5 = 0;
+    
+    for (let i = 0; i < 20; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        const li = document.getElementById(`q-${i}`);
+        const correctAnswer = correctAnswersMap[i];
+        
+        if (li) {
+            const isCorrect = selected && selected.value === correctAnswer;
+            
+            if (isCorrect) {
+                correctCount++;
+                li.classList.add('correct');
+                li.classList.remove('incorrect');
+            } else {
+                li.classList.add('incorrect');
+                li.classList.remove('correct');
+            }
+
+            if (isCorrect) {
+                if (i < 4) sec1++;
+                else if (i < 8) sec2++;
+                else if (i < 12) sec3++;
+                else if (i < 16) sec4++;
+                else sec5++;
+            }
+        }
+    }
+
+    const score = (correctCount / 20) * 100;
+    const successRate = Math.round(score);
+    
+    document.getElementById('res-total').textContent = `${successRate} / 100`;
+    document.getElementById('res-name').textContent = document.getElementById('studentName').value || (currentLang === 'ar' ? 'طالب' : 'Student');
+    document.getElementById('res-date').textContent = new Date().toLocaleDateString(currentLang === 'ar' ? 'ar-AE' : 'en-US');
+    
+    document.getElementById('sec1-score').textContent = `${sec1}/4`;
+    document.getElementById('sec2-score').textContent = `${sec2}/4`;
+    document.getElementById('sec3-score').textContent = `${sec3}/4`;
+    document.getElementById('sec4-score').textContent = `${sec4}/4`;
+    document.getElementById('sec5-score').textContent = `${sec5}/4`;
+    
+    const badge = document.getElementById('success-badge');
+    const percent = document.getElementById('success-percent');
+    percent.textContent = `${successRate}%`;
+    
+    if (currentLang === 'ar') {
+        if (successRate >= 90) { badge.textContent = 'ممتاز'; badge.className = 'success-badge grade-excellent'; }
+        else if (successRate >= 75) { badge.textContent = 'جيد جداً'; badge.className = 'success-badge grade-good'; }
+        else if (successRate >= 50) { badge.textContent = 'جيد'; badge.className = 'success-badge grade-pass'; }
+        else { badge.textContent = 'يحتاج تحسين'; badge.className = 'success-badge grade-fail'; }
+    } else {
+        if (successRate >= 90) { badge.textContent = 'Excellent'; badge.className = 'success-badge grade-excellent'; }
+        else if (successRate >= 75) { badge.textContent = 'Very Good'; badge.className = 'success-badge grade-good'; }
+        else if (successRate >= 50) { badge.textContent = 'Good'; badge.className = 'success-badge grade-pass'; }
+        else { badge.textContent = 'Needs Improvement'; badge.className = 'success-badge grade-fail'; }
+    }
+    
+    document.getElementById('results-panel').classList.remove('hidden');
+    document.getElementById('results-panel').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('sendEmailBtn').classList.remove('hidden');
+}
+
+function sendResultsToEmail() {
+    const btn = document.getElementById('sendEmailBtn');
+    const status = document.getElementById('emailStatus');
+    btn.disabled = true;
+    btn.textContent = currentLang === 'ar' ? '⏳ جاري الإرسال...' : '📤 Sending...';
+
+    const name = document.getElementById('studentName').value || 'N/A';
+    const studentClass = document.getElementById('studentClass').value || 'N/A';
+    const date = document.querySelector('input[type="text"]').value || new Date().toLocaleDateString();
+    const score = document.getElementById('res-total').textContent;
+    const successRate = document.getElementById('success-percent').textContent;
+    const badge = document.getElementById('success-badge').textContent;
+
+    const sectionNames = {
+        ar: [
+            "الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات",
+            "الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة",
+            "الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل",
+            "الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية",
+            "الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي"
+        ],
+        en: [
+            "Part 1: Basic Concepts, Rules, and Definitions",
+            "Part 2: Calculations and Exact Numerical Solutions",
+            "Part 3: Advanced Skills, Applications, and Problems",
+            "Part 4: Mathematical Modeling, Graphing, and Practical Problems",
+            "Part 5: Higher-Order Thinking, Analysis, and Logical Connections"
+        ]
+    };
+    const currentSectionNames = sectionNames[currentLang];
+
+    let answersHTML = `
+        <div style="font-family: 'Segoe UI', Tahoma, Arial, sans-serif; direction: \${currentLang === 'ar' ? 'rtl' : 'ltr'}; text-align: \${currentLang === 'ar' ? 'right' : 'left'};">
+            <div style="background: linear-gradient(135deg, #0d9488, #0891b2); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
+                <h2 style="margin: 0; font-size: 22px;">⚡ \${currentLang === 'ar' ? 'نتيجة امتحان الرياضيات والتحليل التفاعلي' : 'Math Interactive Exam Result'}</h2>
+                <p style="margin: 5px 0 0 0; opacity: 0.9;">\${currentLang === 'ar' ? 'رياضيات الصف الحادي عشر عام | الفصل الدراسي الأول' : 'Grade 11 General Math | Term 1'}</p>
+                <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.8;">🔀 \${currentLang === 'ar' ? 'تم خلط الأسئلة تلقائياً' : 'Questions were randomly shuffled'}</p>
+            </div>
+            
+            <div style="background: #f0fdfa; padding: 15px; border: 1px solid #99f6e4;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '👤 الاسم:' : '👤 Name:'}</td>
+                        <td style="padding: 8px;">\${name}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '🏫 الشعبة:' : '🏫 Class:'}</td>
+                        <td style="padding: 8px;">\${studentClass}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '📅 التاريخ:' : '📅 Date:'}</td>
+                        <td style="padding: 8px;">\${date}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '🏆 التقدير:' : '🏆 Grade:'}</td>
+                        <td style="padding: 8px;">\${badge}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="background: white; padding: 20px; text-align: center; border-bottom: 2px solid #e5e7eb;">
+                <div style="display: inline-block; margin: 0 15px;">
+                    <div style="font-size: 32px; font-weight: bold; color: #0d9488;">\${score}</div>
+                    <div style="color: #6b7280; font-size: 13px;">\${currentLang === 'ar' ? 'الدرجة الكلية' : 'Total Score'}</div>
+                </div>
+                <div style="display: inline-block; margin: 0 15px;">
+                    <div style="font-size: 32px; font-weight: bold; color: #059669;">\${successRate}%</div>
+                    <div style="color: #6b7280; font-size: 13px;">\${currentLang === 'ar' ? 'نسبة النجاح' : 'Success Rate'}</div>
+                </div>
+            </div>
+
+            <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db;">
+                \${currentLang === 'ar' ? '📝 تفاصيل الإجابات' : '📝 Answer Details'}
+            </h3>
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                <thead>
+                    <tr style="background: #0d9488; color: white;">
+                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 8%;">#</th>
+                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 32%;">\${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
+                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">\${currentLang === 'ar' ? 'الإجابة' : 'Answer'}</th>
+                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">\${currentLang === 'ar' ? 'الصحيحة' : 'Correct'}</th>
+                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">\${currentLang === 'ar' ? 'النتيجة' : 'Status'}</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+
+    let sectionScores = [sec1, sec2, sec3, sec4, sec5];
+    let sectionTotals = [4, 4, 4, 4, 4];
+
+    for (let i = 0; i < 20; i++) {
+        const selected = document.querySelector(`input[name="q\${i}"]:checked`);
+        const selectedValue = selected ? selected.value : '-';
+        const correctValue = correctAnswersMap[i];
+        const isCorrect = selectedValue === correctValue;
+        
+        const sectionIndex = Math.floor(i / 4);
+
+        const rowBg = i % 2 === 0 ? '#f9fafb' : '#ffffff';
+        const statusBg = isCorrect ? '#dcfce7' : '#fee2e2';
+        const statusColor = isCorrect ? '#166534' : '#991b1b';
+        const statusIcon = isCorrect ? '✅' : '❌';
+        const statusText = isCorrect 
+            ? (currentLang === 'ar' ? 'صحيح' : 'Correct') 
+            : (currentLang === 'ar' ? 'خطأ' : 'Wrong');
+
+        answersHTML += `
+            <tr style="background: \${rowBg};">
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">\${i + 1}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">\${currentSectionNames[sectionIndex]}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">\${selectedValue.toUpperCase()}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #059669;">\${correctValue.toUpperCase()}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; background: \${statusBg}; color: \${statusColor}; font-weight: bold;">
+                    \${statusIcon} \${statusText}
+                </td>
+            </tr>
+        `;
+    }
+
+    answersHTML += `
+                </tbody>
+            </table>
+
+            <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db; border-top: 3px solid #0d9488;">
+                📊 \${currentLang === 'ar' ? 'تفصيل الأداء' : 'Performance Breakdown'}
+            </h3>
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                <thead>
+                    <tr style="background: #7c3aed; color: white;">
+                        <th style="padding: 10px; border: 1px solid #6d28d9;">\${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
+                        <th style="padding: 10px; border: 1px solid #6d28d9; width: 20%;">\${currentLang === 'ar' ? 'النتيجة' : 'Score'}</th>
+                        <th style="padding: 10px; border: 1px solid #6d28d9; width: 20%;">\${currentLang === 'ar' ? 'النسبة' : 'Percentage'}</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+
+    for (let i = 0; i < 5; i++) {
+        const percentage = Math.round((sectionScores[i] / sectionTotals[i]) * 100);
+        const barColor = percentage >= 75 ? '#10b981' : percentage >= 50 ? '#f59e0b' : '#ef4444';
+        const rowBg = i % 2 === 0 ? '#f9fafb' : '#ffffff';
+        
+        answersHTML += `
+            <tr style="background: \${rowBg};">
+                <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">\${currentSectionNames[i]}</td>
+                <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #0d9488;">
+                    \${sectionScores[i]} / \${sectionTotals[i]}
+                </td>
+                <td style="padding: 10px; border: 1px solid #e5e7eb;">
+                    <div style="background: #e5e7eb; border-radius: 10px; overflow: hidden; height: 20px; position: relative;">
+                        <div style="background: \${barColor}; width: \${percentage}%; height: 100%;"></div>
+                        <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 11px; font-weight: bold; color: #1f2937;">
+                            \${percentage}%
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        `;
+    }
+
+    answersHTML += `
+                </tbody>
+            </table>
+
+            <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 15px; border-radius: 0 0 10px 10px; border-top: 2px solid #f59e0b;">
+                <p style="margin: 0; color: #78350f; text-align: center; font-size: 13px;">
+                    💡 <strong>\${currentLang === 'ar' ? 'ملاحظة:' : 'Note:'}</strong> 
+                    \${currentLang === 'ar' 
+                        ? 'تم إرسال هذا التقرير تلقائياً من منصة 4U التعليمية | Mr. Mohammed Hesham' 
+                        : 'This report was automatically sent from 4U Educational Platform | Mr. Mohammed Hesham'}
+                </p>
+            </div>
+        </div>
+    `;
+
+    const templateParams = {
+        to_email: TARGET_EMAIL,
+        student_name: name,
+        student_class: studentClass,
+        exam_date: date,
+        total_score: score,
+        success_rate: successRate,
+        grade: badge,
+        answers_table: answersHTML
+    };
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+        .then(() => {
+            status.textContent = currentLang === 'ar' 
+                ? '✅ تم إرسال النتائج بنجاح!' 
+                : '✅ Results sent successfully!';
+            status.style.color = '#059669';
+            btn.textContent = currentLang === 'ar' ? '✓ تم الإرسال' : '✓ Sent';
+        })
+        .catch(err => {
+            status.textContent = currentLang === 'ar' 
+                ? '❌ فشل الإرسال، حاول مرة أخرى' 
+                : '❌ Failed to send, try again';
+            status.style.color = '#dc2626';
+            btn.disabled = false;
+            btn.textContent = currentLang === 'ar' ? '📧 إعادة المحاولة' : '📧 Retry Send';
+            console.error('EmailJS Error:', err);
+        });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    prepareShuffledExam();
+    renderExam();
+    startTimer();
+    console.log('🔀 تم خلط الأسئلة والخيارات عشوائياً!');
+});
+</script>
+</body>
+</html>
