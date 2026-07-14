@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ Grade 11 General Math - Lesson 2: Properties of Real Numbers (11Jen-math-T1-1.2-exam)</title>
+    <title>🧮 Properties of Real Numbers Exam</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;600;700;900&family=Inter:wght=400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Cairo', sans-serif; }
         body.en-mode { font-family: 'Inter', sans-serif; }
@@ -25,7 +25,7 @@
             position: fixed; top: 16px; left: 16px; z-index: 100;
             background: white; padding: 6px; border-radius: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; gap: 4px;
-            border: 2px solid #0d9488;
+            border: 2px solid #ea580c;
         }
         [dir="ltr"] .lang-switch { left: auto; right: 16px; }
         .lang-btn {
@@ -33,8 +33,8 @@
             transition: all 0.3s; border: none; font-size: 0.875rem;
             background: transparent; color: #6b7280;
         }
-        .lang-btn.active { background: #0d9488; color: white; box-shadow: 0 2px 6px rgba(13,148,136,0.4); }
-        .lang-btn:hover:not(.active) { background: #f0fdfa; color: #0d9488; }
+        .lang-btn.active { background: #ea580c; color: white; box-shadow: 0 2px 6px rgba(234,88,12,0.4); }
+        .lang-btn:hover:not(.active) { background: #fff7ed; color: #ea580c; }
         .shuffle-badge {
             display: inline-block;
             background: linear-gradient(135deg, #f59e0b, #ef4444);
@@ -47,7 +47,7 @@
             animation: pulse 2s infinite;
         }
     </style>
-<script src="/_aistudio-iframe.js"></script></head>
+</head>
 <body class="bg-gray-50 text-gray-800 p-4 md:p-8 min-h-screen">
 
     <div class="lang-switch no-print">
@@ -56,24 +56,24 @@
     </div>
 
     <div id="timer-container" class="max-w-4xl mx-auto mb-4 text-center no-print">
-        <div class="bg-white p-4 rounded-xl shadow-md inline-block border-2 border-teal-100">
+        <div class="bg-white p-4 rounded-xl shadow-md inline-block border-2 border-orange-100">
             <span class="text-gray-600 ml-2" data-ar="⏱️ الوقت المتبقي:" data-en="⏱️ Time Remaining:">⏱️ الوقت المتبقي:</span>
-            <span id="timer" class="text-2xl font-bold text-teal-600 font-mono">60:00</span>
+            <span id="timer" class="text-2xl font-bold text-orange-600 font-mono">60:00</span>
             <span class="shuffle-badge" data-ar="🔀 أسئلة عشوائية" data-en="🔀 Random Questions">🔀 أسئلة عشوائية</span>
         </div>
     </div>
 
     <div class="max-w-4xl mx-auto mb-6 flex flex-wrap gap-3 justify-center no-print">
-        <button onclick="toggleAnswers()" class="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="👁️ إظهار / إخفاء الإجابات" data-en="👁️ Show / Hide Answers">👁️ إظهار / إخفاء الإجابات</button>
+        <button onclick="toggleAnswers()" class="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="👁️ إظهار / إخفاء الإجابات" data-en="👁️ Show / Hide Answers">👁️ إظهار / إخفاء الإجابات</button>
         <button onclick="window.print()" class="bg-gray-800 hover:bg-gray-900 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🖨️ طباعة / PDF" data-en="🖨️ Print / PDF">🖨️ طباعة / PDF</button>
-        <button onclick="reshuffleExam()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🔀 إعادة خلط الأسئلة" data-en="🔀 Reshuffle Questions">🔀 إعادة خلط الأسئلة</button>
+        <button onclick="reshuffleExam()" class="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🔀 إعادة خلط الأسئلة" data-en="🔀 Reshuffle Questions">🔀 إعادة خلط الأسئلة</button>
     </div>
 
-    <header class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md mb-8 border-r-4 border-teal-600">
+    <header class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md mb-8 border-r-4 border-orange-600">
         <div class="text-center">
-            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="⚡ رياضيات الصف الحادي عشر عام" data-en="⚡ Grade 11 General Mathematics">⚡ رياضيات الصف الحادي عشر عام</h1>
-            <h2 class="text-lg text-teal-600 font-semibold" data-ar="الدرس الثاني: خواص الأعداد الحقيقية (الفصل الدراسي الأول)" data-en="Lesson 2: Properties of Real Numbers (Term 1)">الدرس الثاني: خواص الأعداد الحقيقية (الفصل الدراسي الأول)</h2>
-            <p class="text-sm text-gray-600 mt-2" data-ar="اختبار تقييمي تفاعلي شامل يغطي تصنيفات الأعداد الحقيقية، النظير الجمعي والنظير الضربي، وخواص التبديل، التجميع، والتوزيع." data-en="Lesson 2: Properties of Real Numbers complete interactive test aligned with Ministry syllabus.">اختبار تقييمي تفاعلي شامل يغطي تصنيفات الأعداد الحقيقية، النظير الجمعي والنظير الضربي، وخواص التبديل، التجميع، والتوزيع.</p>
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="🧮 امتحان خصائص الأرقام الحقيقية" data-en="🧮 Properties of Real Numbers Exam">🧮 امتحان خصائص الأرقام الحقيقية</h1>
+            <h2 class="text-lg text-orange-600 font-semibold" data-ar="Properties of Real Numbers" data-en="Properties of Real Numbers">Properties of Real Numbers</h2>
+            <p class="text-sm text-gray-600 mt-2" data-ar="أسئلة تغطي: تصنيف الأرقام الحقيقية، الخصائص الأساسية للأرقام الحقيقية، المعكوس الجمعي والضربي، خاصية التوزيع وتطبيقاتها، وتبسيط التعابير الجبرية" data-en="Covers: Classifying Real Numbers, Basic Properties of Real Numbers, Additive & Multiplicative Inverses, the Distributive Property & Applications, and Simplifying Algebraic Expressions">أسئلة تغطي: تصنيف الأرقام الحقيقية، الخصائص الأساسية للأرقام الحقيقية، المعكوس الجمعي والضربي، خاصية التوزيع وتطبيقاتها، وتبسيط التعابير الجبرية</p>
             <p class="text-xs text-orange-600 mt-2 font-semibold" data-ar="⚠️ ملاحظة: يتم خلط ترتيب الأسئلة والخيارات تلقائياً مع كل تحديث للصفحة" data-en="⚠️ Note: Questions and options are randomly shuffled on every page refresh">⚠️ ملاحظة: يتم خلط ترتيب الأسئلة والخيارات تلقائياً مع كل تحديث للصفحة</p>
         </div>
         <div class="mt-4 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
@@ -81,7 +81,7 @@
             <span><span data-ar="👤 الاسم:" data-en="👤 Name:">👤 الاسم:</span> <input type="text" id="studentName" class="border-b border-gray-400 bg-transparent w-32 text-center" placeholder="Enter name"></span>
             <span><span data-ar="🏫 الشعبة:" data-en="🏫 Class:">🏫 الشعبة:</span> <input type="text" id="studentClass" class="border-b border-gray-400 bg-transparent w-28 text-center" placeholder="Class"></span>
             <span><span data-ar="⏱️ المدة: 60 دقيقة" data-en="⏱️ Duration: 60 min">⏱️ المدة: 60 دقيقة</span></span>
-            <span><span data-ar="📊 המجموع: 100 درجة" data-en="📊 Total: 100 pts">📊 المجموع: 100 درجة</span></span>
+            <span><span data-ar="📊 المجموع: 100 درجة" data-en="📊 Total: 100 pts">📊 المجموع: 100 درجة</span></span>
         </div>
     </header>
 
@@ -94,7 +94,7 @@
     <div id="results-panel" class="max-w-4xl mx-auto mt-8 bg-white p-8 rounded-2xl shadow-2xl border-t-4 border-emerald-500 hidden no-print">
         <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center" data-ar="📊 نتائج الامتحان" data-en="📊 Exam Results">📊 نتائج الامتحان</h2>
         <div class="grid md:grid-cols-3 gap-4 mb-6">
-            <div class="bg-blue-50 p-4 rounded-xl text-center"><p data-ar="اسم الطالب" data-en="Student Name">اسم الطالب</p><p id="res-name" class="font-bold text-xl text-teal-700">-</p></div>
+            <div class="bg-blue-50 p-4 rounded-xl text-center"><p data-ar="اسم الطالب" data-en="Student Name">اسم الطالب</p><p id="res-name" class="font-bold text-xl text-orange-700">-</p></div>
             <div class="bg-purple-50 p-4 rounded-xl text-center"><p data-ar="التاريخ" data-en="Date">التاريخ</p><p id="res-date" class="font-bold text-xl text-purple-700">-</p></div>
             <div class="bg-emerald-50 p-4 rounded-xl text-center"><p data-ar="المجموع" data-en="Score">المجموع</p><p id="res-total" class="font-bold text-3xl text-emerald-600">0 / 100</p></div>
         </div>
@@ -107,29 +107,29 @@
             <h3 class="font-bold text-lg mb-4 text-gray-800" data-ar="📈 تفصيل الأداء حسب القسم:" data-en="📈 Performance Breakdown:">📈 تفصيل الأداء حسب القسم:</h3>
             <div class="space-y-3">
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات" data-en="Part 1: Basic Concepts, Rules, and Definitions">الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات</span>
-                    <span id="sec1-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="تصنيف الأرقام الحقيقية" data-en="Classifying Real Numbers">تصنيف الأرقام الحقيقية</span>
+                    <span id="sec1-score" class="font-bold text-orange-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة" data-en="Part 2: Calculations and Exact Numerical Solutions">الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة</span>
-                    <span id="sec2-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="الخصائص الأساسية للأرقام الحقيقية" data-en="Basic Properties of Real Numbers">الخصائص الأساسية للأرقام الحقيقية</span>
+                    <span id="sec2-score" class="font-bold text-orange-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل" data-en="Part 3: Advanced Skills, Applications, and Problems">الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل</span>
-                    <span id="sec3-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="المعكوس الجمعي والضربي" data-en="Additive & Multiplicative Inverses">المعكوس الجمعي والضربي</span>
+                    <span id="sec3-score" class="font-bold text-orange-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية" data-en="Part 4: Mathematical Modeling, Graphing, and Practical Problems">الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية</span>
-                    <span id="sec4-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="خاصية التوزيع وتطبيقاتها" data-en="The Distributive Property & Applications">خاصية التوزيع وتطبيقاتها</span>
+                    <span id="sec4-score" class="font-bold text-orange-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي" data-en="Part 5: Higher-Order Thinking, Analysis, and Logical Connections">الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي</span>
-                    <span id="sec5-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="تبسيط التعابير الجبرية" data-en="Simplifying Algebraic Expressions">تبسيط التعابير الجبرية</span>
+                    <span id="sec5-score" class="font-bold text-orange-600">0/4</span>
                 </div>
             </div>
         </div>
         <div class="text-center mb-6">
-            <button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white text-lg px-8 py-3 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="📧 إرسال النتائج للمعلم" data-en="📧 Send Results to Teacher">📧 إرسال النتائج للمعلم</button>
+            <button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white text-lg px-8 py-3 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="📧 إرسال النتائج للمعلم" data-en="📧 Send Results to Teacher">📧 إرسال النتائج للمعلم</button>
             <p id="emailStatus" class="text-sm mt-2 text-center font-medium"></p>
         </div>
         <div class="flex gap-3 justify-center">
@@ -138,10 +138,11 @@
     </div>
 
     <footer class="max-w-4xl mx-auto mt-10 mb-8 text-center text-gray-500 text-sm no-print">
-        © <span data-ar="رياضيات الصف 11 عام | الدرس الثاني: خواص الأعداد الحقيقية" data-en="Grade 11 General Math | Lesson 2: Properties of Real Numbers">رياضيات الصف 11 عام | الدرس الثاني: خواص الأعداد الحقيقية</span> | Platform 4U Education
+        © <span data-ar="Properties of Real Numbers" data-en="Properties of Real Numbers">Properties of Real Numbers</span> | Mr. Mohammed Hesham
     </footer>
 
 <script>
+// ==================== EmailJS Settings ====================
 const PUBLIC_KEY = "Rb3Lq8tXaFmc5YHUH";
 const SERVICE_ID = "service_w15m64i";
 const TEMPLATE_ID = "template_5b0u2tq";
@@ -150,624 +151,254 @@ const TARGET_EMAIL = "mohammedhesham872@gmail.com";
 emailjs.init(PUBLIC_KEY);
 
 const originalExamData = {
-    "sections": [
+    sections: [
         {
-            "title": {
-                "ar": "🔹 الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات",
-                "en": "🔹 Part 1: Basic Concepts, Rules, and Definitions"
-            },
-            "questions": [
+            id: 'sec1',
+            title: { ar: '🔹 الجزء الأول: تصنيف الأرقام الحقيقية', en: '🔹 Part 1: Classifying Real Numbers' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "إلى أي من مجموعات الأعداد الحقيقية ينتمي الرقم <span class=\"formula\">-185</span>؟",
-                        "en": "To which sets of real numbers does the number <span class=\"formula\">-185</span> belong?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الأعداد الصحيحة (Z)، النسبية (Q)، الحقيقية (R)",
-                            "en": "Integers (Z), Rational (Q), Real (R)"
-                        },
-                        {
-                            "ar": "الأعداد الطبيعية (N)، الكلية (W)، الحقيقية (R)",
-                            "en": "Natural (N), Whole (W), Real (R)"
-                        },
-                        {
-                            "ar": "الأعداد غير النسبية (I)، الحقيقية (R) فقط",
-                            "en": "Irrational (I), Real (R) only"
-                        },
-                        {
-                            "ar": "الأعداد الكلية (W)، الصحيحة (Z)، الحقيقية (R)",
-                            "en": "Whole (W), Integers (Z), Real (R)"
-                        }
+                    q: { ar: 'كيف يمكن التعبير عن الأرقام النسبية؟', en: 'How can rational numbers be expressed?' },
+                    options: [
+                        { ar: 'كنسبة a/b حيث a وb أرقام صحيحة وb ليست صفراً', en: 'As a ratio a/b, where a and b are integers and b is not zero' },
+                        { ar: 'كجذر تربيعي لأي عدد موجب فقط', en: 'As a square root of any positive number only' },
+                        { ar: 'كعدد عشري غير منته دون أي نمط متكرر', en: 'As a non-terminating decimal with no repeating pattern' },
+                        { ar: 'كعدد صحيح موجب فقط', en: 'As a positive integer only' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الرقم -185 هو صحيح سالب، وبالتالي ينتمي لـ Z، وهو نسبي (Q) وحقيقي (R).",
-                        "en": "The number -185 is a negative integer, so it belongs to Z, Q, and R."
-                    }
+                    correct: 0,
+                    answer: { ar: 'يمكن شرح الأرقام النسبية باعتبارها نسبة a/b حيث a وb أرقام صحيحة وb ليست صفراً، ويكون شكلها العشري إما منتهياً أو دورياً', en: 'Rational numbers can be explained as a ratio a/b, where a and b are integers and b is not zero; their decimal form is either terminating or repeating' }
                 },
                 {
-                    "q": {
-                        "ar": "صنف الرقم <span class=\"formula\">-√49</span> ضمن مجموعات الأعداد الحقيقية؟",
-                        "en": "Classify the number <span class=\"formula\">-√49</span> within the sets of real numbers?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الأعداد الصحيحة (Z)، النسبية (Q)، الحقيقية (R)",
-                            "en": "Integers (Z), Rational (Q), Real (R)"
-                        },
-                        {
-                            "ar": "الأعداد غير النسبية (I)، الحقيقية (R)",
-                            "en": "Irrational (I), Real (R)"
-                        },
-                        {
-                            "ar": "الأعداد الطبيعية (N)، الكلية (W)، الحقيقية (R)",
-                            "en": "Natural (N), Whole (W), Real (R)"
-                        },
-                        {
-                            "ar": "الأعداد الكلية (W)، النسبية (Q)، الحقيقية (R)",
-                            "en": "Whole (W), Rational (Q), Real (R)"
-                        }
+                    q: { ar: 'ما الشكل العشري المميز للرقم غير النسبي؟', en: 'What is the distinguishing decimal form of an irrational number?' },
+                    options: [
+                        { ar: 'عشري غير منته وغير دوري', en: 'A non-terminating, non-repeating decimal' },
+                        { ar: 'عشري منته دائماً', en: 'Always a terminating decimal' },
+                        { ar: 'كسر عشري دوري دائماً', en: 'Always a repeating decimal' },
+                        { ar: 'عدد صحيح دائماً', en: 'Always a whole integer' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "<span class=\"formula\">-√49 = -7</span> وهو عدد صحيح سالب، لذا فهو ينتمي إلى Z و Q و R.",
-                        "en": "<span class=\"formula\">-√49 = -7</span>, which is a negative integer, thus belonging to Z, Q, and R."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الشكل العشري للرقم غير النسبي يكون غير منته وغير دوري، وتعتبر جذور التربيع للأعداد التي ليست تربيعات كاملة أمثلة على أرقام غير نسبية', en: "The decimal form of an irrational number is non-terminating and non-repeating; square roots of numbers that aren't perfect squares are examples of irrational numbers" }
                 },
                 {
-                    "q": {
-                        "ar": "الرقم <span class=\"formula\">-√95</span> ينتمي إلى أي من المجموعات التالية بشكل أدق؟",
-                        "en": "The number <span class=\"formula\">-√95</span> belongs to which of the following groups more accurately?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الأعداد غير النسبية (I)، الأعداد الحقيقية (R)",
-                            "en": "Irrational numbers (I), Real numbers (R)"
-                        },
-                        {
-                            "ar": "الأعداد النسبية (Q)، الأعداد الحقيقية (R)",
-                            "en": "Rational numbers (Q), Real numbers (R)"
-                        },
-                        {
-                            "ar": "الأعداد الصحيحة (Z)، الأعداد الحقيقية (R)",
-                            "en": "Integers (Z), Real numbers (R)"
-                        },
-                        {
-                            "ar": "الأعداد الكلية (W)، الأعداد غير النسبية (I)",
-                            "en": "Whole numbers (W), Irrational numbers (I)"
-                        }
+                    q: { ar: 'أي من مجموعات الأرقام التالية تُعتبر مجموعات فرعية من الأرقام النسبية؟', en: 'Which of the following number sets are subsets of the rational numbers?' },
+                    options: [
+                        { ar: 'الأعداد الصحيحة والأعداد الكلية والأعداد الطبيعية', en: 'The integers, whole numbers, and natural numbers' },
+                        { ar: 'الأعداد غير النسبية فقط', en: 'Only the irrational numbers' },
+                        { ar: 'الأعداد التخيلية فقط', en: 'Only the imaginary numbers' },
+                        { ar: 'لا توجد أي مجموعة فرعية للأرقام النسبية', en: 'There are no subsets of the rational numbers at all' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بما أن 95 ليس مربعاً كاملاً، فإن جذره التربيعي هو كسر عشري غير منته وغير دوري، فهو ينتمي لـ I و R.",
-                        "en": "Since 95 is not a perfect square, its square root is non-terminating and non-repeating, so it belongs to I and R."
-                    }
+                    correct: 0,
+                    answer: { ar: 'مجموعات الأعداد الصحيحة والأعداد الكلية والأعداد الطبيعية هي جميعها مجموعات فرعية للأعداد النسبية', en: 'The sets of integers, whole numbers, and natural numbers are all subsets of the rational numbers' }
                 },
                 {
-                    "q": {
-                        "ar": "أي من الخواص التالية تمثلها المعادلة: <span class=\"formula\">84 + 16 = 16 + 84</span>؟",
-                        "en": "Which property is represented by the equation: <span class=\"formula\">84 + 16 = 16 + 84</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الخاصية التبديلية للجمع",
-                            "en": "Commutative Property of Addition"
-                        },
-                        {
-                            "ar": "الخاصية التجميعية للجمع",
-                            "en": "Associative Property of Addition"
-                        },
-                        {
-                            "ar": "خاصية الهوية المحايدة للجمع",
-                            "en": "Identity Property of Addition"
-                        },
-                        {
-                            "ar": "الخاصية التبديلية للضرب",
-                            "en": "Commutative Property of Multiplication"
-                        }
+                    q: { ar: 'لماذا تُعتبر الأعداد الصحيحة مجموعة فرعية من الأعداد النسبية؟', en: 'Why are the integers considered a subset of the rational numbers?' },
+                    options: [
+                        { ar: 'لأن كل عدد صحيح n يمكن كتابته على صورة الكسر n/1', en: 'Because every integer n can be written as the fraction n/1' },
+                        { ar: 'لأن كل عدد صحيح هو عدد عشري دوري بالضرورة', en: 'Because every integer is necessarily a repeating decimal' },
+                        { ar: 'لأن الأعداد الصحيحة لا تشمل الأعداد السالبة', en: 'Because integers do not include negative numbers' },
+                        { ar: 'لأن جميع الأعداد النسبية هي أعداد صحيحة', en: 'Because all rational numbers are integers' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "المعادلة توضح أن تغيير ترتيب الأعداد المضافة لا يغير من النتيجة، وهي الخاصية التبديلية للجمع.",
-                        "en": "The equation shows that changing the order of addends does not change the sum, which is the Commutative Property of Addition."
-                    }
+                    correct: 0,
+                    answer: { ar: 'تُعتبر الأعداد الصحيحة مجموعة فرعية للأعداد النسبية لأن كل عدد صحيح n يساوي n/1، وهو ما يطابق تعريف العدد النسبي كنسبة a/b', en: 'Integers are a subset of the rational numbers because every integer n equals n/1, which matches the definition of a rational number as a ratio a/b' }
                 }
             ]
         },
         {
-            "title": {
-                "ar": "🔹 الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة",
-                "en": "🔹 Part 2: Calculations and Exact Numerical Solutions"
-            },
-            "questions": [
+            id: 'sec2',
+            title: { ar: '🔹 الجزء الثاني: الخصائص الأساسية للأرقام الحقيقية', en: '🔹 Part 2: Basic Properties of Real Numbers' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "ما هو النظير الجمعي والنظير الضربي للعدد <span class=\"formula\">1.25</span> على التوالي؟",
-                        "en": "What is the additive inverse and multiplicative inverse of the number <span class=\"formula\">1.25</span> respectively?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">-1.25</span> و <span class=\"formula\">0.8</span>",
-                            "en": "<span class=\"formula\">-1.25</span> and <span class=\"formula\">0.8</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">-1.25</span> و <span class=\"formula\">-0.8</span>",
-                            "en": "<span class=\"formula\">-1.25</span> and <span class=\"formula\">-0.8</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">1.25</span> و <span class=\"formula\">0.8</span>",
-                            "en": "<span class=\"formula\">1.25</span> and <span class=\"formula\">0.8</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">-1.25</span> و <span class=\"formula\">1.25</span>",
-                            "en": "<span class=\"formula\">-1.25</span> and <span class=\"formula\">1.25</span>"
-                        }
+                    q: { ar: 'ما نص خاصية الانتقال (التبديل) في الجمع؟', en: 'What is the commutative property of addition?' },
+                    options: [
+                        { ar: 'a + b = b + a', en: 'a + b = b + a' },
+                        { ar: 'a + b = b - a', en: 'a + b = b - a' },
+                        { ar: 'a × b = b - a', en: 'a × b = b - a' },
+                        { ar: 'a + (b + c) = (a + b) + c', en: 'a + (b + c) = (a + b) + c' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "النظير الجمعي يعكس الإشارة: <span class=\"formula\">-1.25</span>. النظير الضربي هو مقلوب الرقم: <span class=\"formula\">1 / 1.25 = 4/5 = 0.8</span>.",
-                        "en": "The additive inverse changes the sign: <span class=\"formula\">-1.25</span>. The multiplicative inverse is the reciprocal: <span class=\"formula\">1 / 1.25 = 4/5 = 0.8</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'خاصية الانتقال في الجمع تنص على أن a + b = b + a لأي أرقام حقيقية a وb، أي أن ترتيب الجمع لا يؤثر على الناتج', en: 'The commutative property of addition states that a + b = b + a for any real numbers a and b, meaning the order of addition does not affect the result' }
                 },
                 {
-                    "q": {
-                        "ar": "أوجد النظير الجمعي والضربي للعدد الكسري <span class=\"formula\">2 1/2</span> على الترتيب؟",
-                        "en": "Find the additive and multiplicative inverse of the mixed number <span class=\"formula\">2 1/2</span> respectively?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">-5/2</span> و <span class=\"formula\">2/5</span>",
-                            "en": "<span class=\"formula\">-5/2</span> and <span class=\"formula\">2/5</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">-5/2</span> و <span class=\"formula\">-2/5</span>",
-                            "en": "<span class=\"formula\">-5/2</span> and <span class=\"formula\">-2/5</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">5/2</span> و <span class=\"formula\">2/5</span>",
-                            "en": "<span class=\"formula\">5/2</span> and <span class=\"formula\">2/5</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">-2.5</span> و <span class=\"formula\">2.5</span>",
-                            "en": "<span class=\"formula\">-2.5</span> and <span class=\"formula\">2.5</span>"
-                        }
+                    q: { ar: 'ما نص خاصية التجميع في الضرب؟', en: 'What is the associative property of multiplication?' },
+                    options: [
+                        { ar: '(a · b) · c = a · (b · c)', en: '(a · b) · c = a · (b · c)' },
+                        { ar: 'a · b = b · a', en: 'a · b = b · a' },
+                        { ar: 'a · 1 = a', en: 'a · 1 = a' },
+                        { ar: 'a + 0 = a', en: 'a + 0 = a' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "<span class=\"formula\">2 1/2 = 5/2</span>. نظيرها الجمعي هو <span class=\"formula\">-5/2</span> (أو <span class=\"formula\">-2.5</span>)، ونظيرها الضربي هو مقلوبها <span class=\"formula\">2/5</span>.",
-                        "en": "<span class=\"formula\">2 1/2 = 5/2</span>. Its additive inverse is <span class=\"formula\">-5/2</span>, and its multiplicative inverse is <span class=\"formula\">2/5</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'خاصية التجميع في الضرب تنص على أن (a · b) · c = a · (b · c)، أي أن أسلوب تجميع العوامل لا يؤثر على حاصل الضرب', en: 'The associative property of multiplication states that (a · b) · c = a · (b · c), meaning the way factors are grouped does not affect the product' }
                 },
                 {
-                    "q": {
-                        "ar": "ما هو النظير الجمعي للعدد <span class=\"formula\">-5/8</span> والنظير الضربي له؟",
-                        "en": "What is the additive inverse and the multiplicative inverse of <span class=\"formula\">-5/8</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">5/8</span> و <span class=\"formula\">-8/5</span>",
-                            "en": "<span class=\"formula\">5/8</span> and <span class=\"formula\">-8/5</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">-5/8</span> و <span class=\"formula\">8/5</span>",
-                            "en": "<span class=\"formula\">-5/8</span> and <span class=\"formula\">8/5</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">5/8</span> و <span class=\"formula\">8/5</span>",
-                            "en": "<span class=\"formula\">5/8</span> and <span class=\"formula\">8/5</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">-5/8</span> و <span class=\"formula\">-8/5</span>",
-                            "en": "<span class=\"formula\">-5/8</span> and <span class=\"formula\">-8/5</span>"
-                        }
+                    q: { ar: 'ما نص خاصية المحايد في الجمع؟', en: "What is the identity property of addition?" },
+                    options: [
+                        { ar: 'a + 0 = a = 0 + a', en: 'a + 0 = a = 0 + a' },
+                        { ar: 'a · 1 = a = 1 · a', en: 'a · 1 = a = 1 · a' },
+                        { ar: 'a + (-a) = 0', en: 'a + (-a) = 0' },
+                        { ar: 'a · b رقم حقيقي', en: 'a · b is a real number' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الجمعي يعكس الإشارة: <span class=\"formula\">5/8</span>. الضربي يقلب الكسر ويحتفظ بالإشارة: <span class=\"formula\">-8/5</span>.",
-                        "en": "The additive inverse changes sign: <span class=\"formula\">5/8</span>. The multiplicative inverse is the reciprocal, retaining the sign: <span class=\"formula\">-8/5</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'خاصية المحايد في الجمع تنص على أن a + 0 = a = 0 + a، أي أن إضافة الصفر لا تغيّر قيمة العدد', en: 'The identity property of addition states that a + 0 = a = 0 + a, meaning adding zero does not change the value of the number' }
                 },
                 {
-                    "q": {
-                        "ar": "بسط التعبير الجبري التالي: <span class=\"formula\">3(4x - 2y) - 2(3x + y)</span>؟",
-                        "en": "Simplify the following algebraic expression: <span class=\"formula\">3(4x - 2y) - 2(3x + y)</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">6x - 8y</span>",
-                            "en": "<span class=\"formula\">6x - 8y</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">6x - 4y</span>",
-                            "en": "<span class=\"formula\">6x - 4y</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">18x - 8y</span>",
-                            "en": "<span class=\"formula\">18x - 8y</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">6x - 5y</span>",
-                            "en": "<span class=\"formula\">6x - 5y</span>"
-                        }
+                    q: { ar: 'ما الذي تدل عليه خاصية الإغلاق بالنسبة لعمليتي الجمع والضرب على الأرقام الحقيقية؟', en: 'What does the closure property indicate for addition and multiplication on real numbers?' },
+                    options: [
+                        { ar: 'أن ناتج جمع أو ضرب أي رقمين حقيقيين هو دائماً رقم حقيقي', en: 'That the result of adding or multiplying any two real numbers is always a real number' },
+                        { ar: 'أن ناتج كل عملية جمع يساوي صفراً دائماً', en: 'That the result of every addition is always zero' },
+                        { ar: 'أن الأرقام الحقيقية محصورة بين -1 و1 فقط', en: 'That real numbers are confined between -1 and 1 only' },
+                        { ar: 'أن الضرب لا ينطبق على الأرقام السالبة', en: 'That multiplication does not apply to negative numbers' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "باستخدام خاصية التوزيع: <span class=\"formula\">12x - 6y - 6x - 2y = (12x - 6x) + (-6y - 2y) = 6x - 8y</span>.",
-                        "en": "By distributive property: <span class=\"formula\">12x - 6y - 6x - 2y = 6x - 8y</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'تدل خاصية الإغلاق على أن a + b رقم حقيقي وa · b رقم حقيقي لأي أرقام حقيقية a وb، أي أن نتيجة الجمع أو الضرب تبقى دائماً ضمن مجموعة الأرقام الحقيقية', en: 'The closure property indicates that a + b is a real number and a · b is a real number for any real numbers a and b, meaning the result of addition or multiplication always remains within the set of real numbers' }
                 }
             ]
         },
         {
-            "title": {
-                "ar": "🔹 الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل",
-                "en": "🔹 Part 3: Advanced Skills, Applications, and Problems"
-            },
-            "questions": [
+            id: 'sec3',
+            title: { ar: '🔹 الجزء الثالث: المعكوس الجمعي والضربي', en: '🔹 Part 3: Additive & Multiplicative Inverses' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "أي مما يلي يوضح خاصية التجميع لعملية الضرب؟",
-                        "en": "Which of the following demonstrates the Associative Property of Multiplication?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">(ab)c = a(bc)</span>",
-                            "en": "<span class=\"formula\">(ab)c = a(bc)</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">ab = ba</span>",
-                            "en": "<span class=\"formula\">ab = ba</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">a(b + c) = ab + ac</span>",
-                            "en": "<span class=\"formula\">a(b + c) = ab + ac</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">a · 1 = a</span>",
-                            "en": "<span class=\"formula\">a · 1 = a</span>"
-                        }
+                    q: { ar: 'ما تعريف المعكوس الجمعي لعدد حقيقي a؟', en: 'What is the definition of the additive inverse of a real number a?' },
+                    options: [
+                        { ar: 'العدد -a الذي يحقق a + (-a) = 0', en: 'The number -a, which satisfies a + (-a) = 0' },
+                        { ar: 'العدد 1/a الذي يحقق a · (1/a) = 1', en: 'The number 1/a, which satisfies a · (1/a) = 1' },
+                        { ar: 'العدد صفر دائماً بغض النظر عن قيمة a', en: 'The number zero, regardless of the value of a' },
+                        { ar: 'العدد a نفسه دائماً', en: 'The number a itself, always' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "خاصية التجميع تسمح بتغيير كيفية تجميع الأعداد المضروبة دون تغيير النتيجة.",
-                        "en": "The associative property allows grouping of multiplied numbers differently without changing the outcome."
-                    }
+                    correct: 0,
+                    answer: { ar: 'المعكوس الجمعي لعدد حقيقي a هو العدد -a، والذي يحقق a + (-a) = 0 = (-a) + a', en: 'The additive inverse of a real number a is -a, which satisfies a + (-a) = 0 = (-a) + a' }
                 },
                 {
-                    "q": {
-                        "ar": "أي مما يلي يعتبر مثالاً على خاصية النظير الجمعي؟",
-                        "en": "Which of the following is an example of the Additive Inverse Property?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">-7y + 7y = 0</span>",
-                            "en": "<span class=\"formula\">-7y + 7y = 0</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">a + 0 = a</span>",
-                            "en": "<span class=\"formula\">a + 0 = a</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">a(1/a) = 1</span>",
-                            "en": "<span class=\"formula\">a(1/a) = 1</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">a + (-a) = 0</span>",
-                            "en": "<span class=\"formula\">a + (-a) = 0</span>"
-                        }
+                    q: { ar: 'ما تعريف المعكوس الضربي لعدد حقيقي a بشرط أن a ≠ 0؟', en: 'What is the definition of the multiplicative inverse of a real number a, given that a ≠ 0?' },
+                    options: [
+                        { ar: 'العدد 1/a الذي يحقق a · (1/a) = 1', en: 'The number 1/a, which satisfies a · (1/a) = 1' },
+                        { ar: 'العدد -a الذي يحقق a + (-a) = 0', en: 'The number -a, which satisfies a + (-a) = 0' },
+                        { ar: 'العدد صفر دائماً', en: 'The number zero, always' },
+                        { ar: 'العدد a² دائماً', en: 'The number a², always' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "جمع أي عدد ونظيره الجمعي يعطي دائماً المحايد الجمعي وهو 0.",
-                        "en": "Adding any number and its additive inverse always yields the additive identity, which is 0."
-                    }
+                    correct: 0,
+                    answer: { ar: 'المعكوس الضربي لعدد حقيقي a (حيث a ≠ 0) هو العدد 1/a، والذي يحقق a · (1/a) = 1 = (1/a) · a', en: 'The multiplicative inverse of a real number a (where a ≠ 0) is 1/a, which satisfies a · (1/a) = 1 = (1/a) · a' }
                 },
                 {
-                    "q": {
-                        "ar": "بسط التعبير التالي: <span class=\"formula\">1/3(5x + 8y) + 1/4(6x - 2y)</span>؟",
-                        "en": "Simplify the following expression: <span class=\"formula\">1/3(5x + 8y) + 1/4(6x - 2y)</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">19/12 x + 13/6 y</span>",
-                            "en": "<span class=\"formula\">19/12 x + 13/6 y</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">3.1x + 2.1y</span>",
-                            "en": "<span class=\"formula\">3.1x + 2.1y</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">11/4 x + 5/4 y</span>",
-                            "en": "<span class=\"formula\">11/4 x + 5/4 y</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">17/12 x + 5/6 y</span>",
-                            "en": "<span class=\"formula\">17/12 x + 5/6 y</span>"
-                        }
+                    q: { ar: 'بالنسبة لعدد سالب مثل -5/8، ما العلاقة بين إشارته وإشارة معكوسه الجمعي؟', en: 'For a negative number like -5/8, what is the relationship between its sign and the sign of its additive inverse?' },
+                    options: [
+                        { ar: 'يحتوي المعكوس الجمعي على عكس علامة الرقم نفسه', en: 'The additive inverse has the opposite sign of the number itself' },
+                        { ar: 'يحتوي المعكوس الجمعي على نفس علامة الرقم نفسه دائماً', en: 'The additive inverse always has the same sign as the number itself' },
+                        { ar: 'لا توجد علاقة بين الإشارتين إطلاقاً', en: 'There is no relationship between the two signs at all' },
+                        { ar: 'المعكوس الجمعي يكون دائماً موجباً فقط', en: 'The additive inverse is always positive only' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الحدود السينية: <span class=\"formula\">5/3 x + 6/4 x = 5/3 x + 3/2 x = (10+9)/6 x = 19/6 x</span>. عذراً، لنحسب بدقة: <span class=\"formula\">5/3 x + 6/4 x = 20/12 x + 18/12 x = 38/12 x = 19/6 x</span>. الحدود الصادية: <span class=\"formula\">8/3 y - 2/4 y = 8/3 y - 1/2 y = (16-3)/6 y = 13/6 y</span>. النتيجة الصحيحة: <span class=\"formula\">19/6 x + 13/6 y</span>.",
-                        "en": "X terms: <span class=\"formula\">5/3 + 6/4 = 19/6</span>. Y terms: <span class=\"formula\">8/3 - 2/4 = 13/6</span>. Correct result is <span class=\"formula\">19/6 x + 13/6 y</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'يحتوي المعكوس الجمعي لرقم ما على عكس علامة الرقم نفسه؛ فمثلاً المعكوس الجمعي لـ -5/8 هو 5/8', en: 'The additive inverse of a number has the opposite sign of the number itself; for example, the additive inverse of -5/8 is 5/8' }
                 },
                 {
-                    "q": {
-                        "ar": "بسط التعبير الجبري التالي: <span class=\"formula\">-4(6c - 3d) - 5(-2c - 4d)</span>؟",
-                        "en": "Simplify the following algebraic expression: <span class=\"formula\">-4(6c - 3d) - 5(-2c - 4d)</span>?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">-14c + 32d</span>",
-                            "en": "<span class=\"formula\">-14c + 32d</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">-14c - 8d</span>",
-                            "en": "<span class=\"formula\">-14c - 8d</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">34c + 32d</span>",
-                            "en": "<span class=\"formula\">34c + 32d</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">-14c + 8d</span>",
-                            "en": "<span class=\"formula\">-14c + 8d</span>"
-                        }
+                    q: { ar: 'بالنسبة لعدد سالب، ما العلاقة بين إشارته وإشارة معكوسه الضربي؟', en: 'For a negative number, what is the relationship between its sign and the sign of its multiplicative inverse?' },
+                    options: [
+                        { ar: 'يحتوي المعكوس الضربي على نفس علامة الرقم نفسه', en: 'The multiplicative inverse has the same sign as the number itself' },
+                        { ar: 'يحتوي المعكوس الضربي على عكس علامة الرقم نفسه', en: 'The multiplicative inverse has the opposite sign of the number itself' },
+                        { ar: 'المعكوس الضربي يساوي صفراً دائماً', en: 'The multiplicative inverse always equals zero' },
+                        { ar: 'لا يوجد معكوس ضربي للأعداد السالبة إطلاقاً', en: 'Negative numbers have no multiplicative inverse at all' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بالتوزيع: <span class=\"formula\">-24c + 12d + 10c + 20d = -14c + 32d</span>.",
-                        "en": "By distribution: <span class=\"formula\">-24c + 12d + 10c + 20d = -14c + 32d</span>."
-                    }
+                    correct: 0,
+                    answer: { ar: 'يحتوي المعكوس الضربي لرقم ما على نفس علامة الرقم نفسه؛ فمثلاً المعكوس الضربي لـ -5/8 هو -8/5', en: 'The multiplicative inverse of a number has the same sign as the number itself; for example, the multiplicative inverse of -5/8 is -8/5' }
                 }
             ]
         },
         {
-            "title": {
-                "ar": "🔹 الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية",
-                "en": "🔹 Part 4: Mathematical Modeling, Graphing, and Practical Problems"
-            },
-            "questions": [
+            id: 'sec4',
+            title: { ar: '🔹 الجزء الرابع: خاصية التوزيع وتطبيقاتها', en: '🔹 Part 4: The Distributive Property & Applications' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "يشتري خالد مكونات جهاز كمبيوتر بأسعار: 359.95, 219.99, 79.00, 149.50, 99.00 درهم إماراتي. إذا تم تطبيق ضريبة مبيعات بنسبة 6%، فما هي قيمة الضريبة الإجمالية؟",
-                        "en": "Khaled buys computer components priced: 359.95, 219.99, 79.00, 149.50, and 99.00 AED. If a 6% sales tax is added, what is the total tax amount?"
-                    },
-                    "options": [
-                        {
-                            "ar": "AED <span class=\"formula\">54.45</span>",
-                            "en": "AED <span class=\"formula\">54.45</span>"
-                        },
-                        {
-                            "ar": "AED <span class=\"formula\">907.44</span>",
-                            "en": "AED <span class=\"formula\">907.44</span>"
-                        },
-                        {
-                            "ar": "AED <span class=\"formula\">45.33</span>",
-                            "en": "AED <span class=\"formula\">45.33</span>"
-                        },
-                        {
-                            "ar": "AED <span class=\"formula\">60.25</span>",
-                            "en": "AED <span class=\"formula\">60.25</span>"
-                        }
+                    q: { ar: 'ما نص خاصية التوزيع؟', en: 'What is the distributive property?' },
+                    options: [
+                        { ar: 'a(b + c) = ab + ac', en: 'a(b + c) = ab + ac' },
+                        { ar: 'a(b + c) = a + b + c', en: 'a(b + c) = a + b + c' },
+                        { ar: 'a(b + c) = ab · ac', en: 'a(b + c) = ab · ac' },
+                        { ar: 'a(b + c) = (a + b)(a + c)', en: 'a(b + c) = (a + b)(a + c)' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "المجموع الكلي للمكونات = 907.44 AED. قيمة الضريبة = <span class=\"formula\">907.44 * 0.06 = 54.446 ≈ 54.45</span> درهم.",
-                        "en": "Total cost of components = 907.44 AED. Tax = <span class=\"formula\">907.44 * 0.06 ≈ 54.45</span> AED."
-                    }
+                    correct: 0,
+                    answer: { ar: 'خاصية التوزيع تنص على أن a(b + c) = ab + ac وكذلك (b + c)a = ba + ca لأي أرقام حقيقية a وb وc', en: 'The distributive property states that a(b + c) = ab + ac, and also (b + c)a = ba + ca, for any real numbers a, b, and c' }
                 },
                 {
-                    "q": {
-                        "ar": "يقوم سمير بقص عشب الحدائق بسعر AED 22 للحديقة الواحدة. إذا قام بقص حدائق بأعداد: 2، 4، 3، 1، 5، 6، 7 في أيام الأسبوع على التوالي. اكتب تعبيراً لتمثيل إجمالي مبالغه الكلية؟",
-                        "en": "Samir mows lawns at AED 22 per lawn. If he mows 2, 4, 3, 1, 5, 6, and 7 lawns on consecutive weekdays. Which expression represents his total earnings?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">22 · (2 + 4 + 3 + 1 + 5 + 6 + 7)</span>",
-                            "en": "<span class=\"formula\">22 · (2 + 4 + 3 + 1 + 5 + 6 + 7)</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">22 + (2 + 4 + 3 + 1 + 5 + 6 + 7)</span>",
-                            "en": "<span class=\"formula\">22 + (2 + 4 + 3 + 1 + 5 + 6 + 7)</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">22 · 2 · 4 · 3 · 1 · 5 · 6 · 7</span>",
-                            "en": "<span class=\"formula\">22 · 2 · 4 · 3 · 1 · 5 · 6 · 7</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">22x + (2+4+3+1+5+6+7)</span>",
-                            "en": "<span class=\"formula\">22x + (2+4+3+1+5+6+7)</span>"
-                        }
+                    q: { ar: 'في مسألة حساب ضريبة المبيعات على عدة عناصر بنسبة ثابتة، ما الأسلوبان اللذان يؤديان إلى نفس النتيجة بحسب خاصية التوزيع؟', en: 'In a problem calculating sales tax on several items at a fixed rate, which two methods yield the same result according to the distributive property?' },
+                    options: [
+                        { ar: 'ضرب كل قيمة بالنسبة ثم جمع النواتج، أو جمع القيم أولاً ثم ضرب المجموع بالنسبة', en: 'Multiplying each value by the rate then summing the results, or summing the values first then multiplying the total by the rate' },
+                        { ar: 'جمع كل القيم فقط دون أي عملية ضرب', en: 'Only summing all the values without any multiplication' },
+                        { ar: 'ضرب كل قيمة في نفسها', en: 'Multiplying each value by itself' },
+                        { ar: 'طرح النسبة من كل قيمة', en: 'Subtracting the rate from each value' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "إجمالي الأرباح هو سعر الحديقة الواحدة (22) مضروباً في مجموع عدد الحدائق التي تم قصها.",
-                        "en": "Total earnings is the price per lawn (22) multiplied by the sum of lawns mowed."
-                    }
+                    correct: 0,
+                    answer: { ar: 'يمكن ضرب كل قيمة دولار في النسبة ثم جمع النواتج (اضرب ثم اجمع)، أو إيجاد إجمالي القيم أولاً ثم ضرب الإجمالي في النسبة (اجمع ثم اضرب)، وكلا الأسلوبين يؤدي إلى نفس الإجابة بحسب خاصية التوزيع', en: 'One can multiply each dollar value by the rate then sum the results (multiply then add), or find the total of the values first then multiply the total by the rate (add then multiply), and both methods lead to the same answer according to the distributive property' }
                 },
                 {
-                    "q": {
-                        "ar": "من السؤال السابق، هل سيحصل سمير على مبالغ كافية لشراء وحدة ألعاب فيديو بقيمة AED 550 خلال هذا الأسبوع؟",
-                        "en": "From the previous question, will Samir earn enough to buy a video game unit priced at AED 550 this week?"
-                    },
-                    "options": [
-                        {
-                            "ar": "نعم، إجمالي أرباحه هو AED 616 وهو أكبر من AED 550",
-                            "en": "Yes, his total earnings is AED 616, which is greater than AED 550"
-                        },
-                        {
-                            "ar": "لا، إجمالي أرباحه هو AED 506 وهو أقل من AED 550",
-                            "en": "No, his total earnings is AED 506, which is less than AED 550"
-                        },
-                        {
-                            "ar": "لا، إجمالي أرباحه هو AED 440 فقط",
-                            "en": "No, his total earnings is only AED 440"
-                        },
-                        {
-                            "ar": "نعم، أرباحه بالضبط AED 550",
-                            "en": "Yes, his earnings are exactly AED 550"
-                        }
+                    q: { ar: 'عند تبسيط 3(2q + r) + 5(4q - 7r) باستخدام خاصية التوزيع، ما الخطوة الأولى الصحيحة؟', en: 'When simplifying 3(2q + r) + 5(4q - 7r) using the distributive property, what is the correct first step?' },
+                    options: [
+                        { ar: 'توزيع 3 على (2q + r) وتوزيع 5 على (4q - 7r) لينتج 3(2q) + 3(r) + 5(4q) - 5(7r)', en: 'Distributing 3 over (2q + r) and 5 over (4q - 7r) to get 3(2q) + 3(r) + 5(4q) - 5(7r)' },
+                        { ar: 'جمع الحدين داخل القوسين أولاً دون أي توزيع', en: 'Adding the terms inside the parentheses first, without any distribution' },
+                        { ar: 'ضرب 3 في 5 مباشرة قبل أي خطوة أخرى', en: 'Multiplying 3 by 5 directly before any other step' },
+                        { ar: 'حذف الأقواس دون إجراء أي عملية ضرب', en: 'Removing the parentheses without performing any multiplication' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "مجموع الحدائق = 28 حديقة. إجمالي الأرباح = <span class=\"formula\">28 * 22 = 616</span> درهم، وهو كافٍ وزيادة.",
-                        "en": "Total lawns = 28. Total earnings = <span class=\"formula\">28 * 22 = 616</span> AED, which is more than 550."
-                    }
+                    correct: 0,
+                    answer: { ar: 'تُطبَّق خاصية التوزيع أولاً بتوزيع 3 على حدي القوس الأول و5 على حدي القوس الثاني، لينتج 3(2q) + 3(r) + 5(4q) - 5(7r) تمهيداً لتبسيط التعبير', en: 'The distributive property is applied first by distributing 3 over the terms of the first parenthesis and 5 over the terms of the second, giving 3(2q) + 3(r) + 5(4q) - 5(7r), in preparation for simplifying the expression' }
                 },
                 {
-                    "q": {
-                        "ar": "تحتاج دانا إلى خياطة ستائر لخمس نوافذ، نافذتين كبيرتين تحتاج كل منهما <span class=\"formula\">3 3/4</span> ياردات، وثلاث نوافذ صغيرة تحتاج كل منهما <span class=\"formula\">2 1/2</span> ياردة. كم إجمالي القماش المطلوب؟",
-                        "en": "Dana needs to sew curtains for 5 windows: 2 large windows requiring <span class=\"formula\">3 3/4</span> yards each, and 3 small windows requiring <span class=\"formula\">2 1/2</span> yards each. What is the total fabric needed?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">15</span> ياردة",
-                            "en": "<span class=\"formula\">15</span> yards"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">12.5</span> ياردة",
-                            "en": "<span class=\"formula\">12.5</span> yards"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">18.25</span> ياردة",
-                            "en": "<span class=\"formula\">18.25</span> yards"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">14.75</span> ياردة",
-                            "en": "<span class=\"formula\">14.75</span> yards"
-                        }
+                    q: { ar: 'أي خاصية تُستخدم لإعادة ترتيب الحدود المتشابهة (مثل تجميع حدود q معاً وحدود r معاً) بعد التوزيع؟', en: 'Which property is used to rearrange like terms (such as grouping the q terms together and the r terms together) after distributing?' },
+                    options: [
+                        { ar: 'خاصية الانتقال (التبديل) في الجمع', en: 'The commutative property of addition' },
+                        { ar: 'خاصية التوزيع مرة أخرى', en: 'The distributive property again' },
+                        { ar: 'خاصية الإغلاق', en: 'The closure property' },
+                        { ar: 'خاصية المعكوس', en: 'The inverse property' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "إجمالي القماش = <span class=\"formula\">2 * (3.75) + 3 * (2.5) = 7.5 + 7.5 = 15</span> ياردة.",
-                        "en": "Total fabric = <span class=\"formula\">2 * (3.75) + 3 * (2.5) = 7.5 + 7.5 = 15</span> yards."
-                    }
+                    correct: 0,
+                    answer: { ar: 'تُستخدم خاصية الانتقال (التبديل) في الجمع لإعادة ترتيب الحدود بحيث تصبح حدود q متجاورة وحدود r متجاورة، تمهيداً لجمعها', en: 'The commutative property of addition is used to rearrange the terms so that the q terms are adjacent and the r terms are adjacent, in preparation for combining them' }
                 }
             ]
         },
         {
-            "title": {
-                "ar": "🔹 الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي",
-                "en": "🔹 Part 5: Higher-Order Thinking, Analysis, and Logical Connections"
-            },
-            "questions": [
+            id: 'sec5',
+            title: { ar: '🔹 الجزء الخامس: تبسيط التعابير الجبرية', en: '🔹 Part 5: Simplifying Algebraic Expressions' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "أي من الأعداد التالية يمثل عدداً حقيقياً غير نسبي؟",
-                        "en": "Which of the following numbers represents an irrational real number?"
-                    },
-                    "options": [
-                        {
-                            "ar": "<span class=\"formula\">√21</span>",
-                            "en": "<span class=\"formula\">√21</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">√81</span>",
-                            "en": "<span class=\"formula\">√81</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">0.61</span>",
-                            "en": "<span class=\"formula\">0.61</span>"
-                        },
-                        {
-                            "ar": "<span class=\"formula\">-15/3</span>",
-                            "en": "<span class=\"formula\">-15/3</span>"
-                        }
+                    q: { ar: 'عند تبسيط -4(6c - 3d) - 5(-2c - 4d)، ما الناتج الصحيح بعد تطبيق خاصية التوزيع مباشرة؟', en: 'When simplifying -4(6c - 3d) - 5(-2c - 4d), what is the correct result immediately after applying the distributive property?' },
+                    options: [
+                        { ar: '-24c + 12d + 10c + 20d', en: '-24c + 12d + 10c + 20d' },
+                        { ar: '-24c - 12d - 10c - 20d', en: '-24c - 12d - 10c - 20d' },
+                        { ar: '24c + 12d - 10c - 20d', en: '24c + 12d - 10c - 20d' },
+                        { ar: '-24c + 12d - 10c + 20d', en: '-24c + 12d - 10c + 20d' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "21 ليس مربعاً كاملاً وجذره يعطي عدداً عشرياً غير منته وغير دوري (غير نسبي)، بينما الآخرون نسبية.",
-                        "en": "21 is not a perfect square, so its root is irrational."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بتوزيع -4 على (6c-3d) نحصل على -24c+12d، وبتوزيع -5 على (-2c-4d) نحصل على 10c+20d، فيصبح التعبير -24c+12d+10c+20d', en: 'Distributing -4 over (6c-3d) gives -24c+12d, and distributing -5 over (-2c-4d) gives 10c+20d, so the expression becomes -24c+12d+10c+20d' }
                 },
                 {
-                    "q": {
-                        "ar": "لماذا لا تنطبق الخاصية التبديلية على عملية الطرح؟ اختر التعليل الرياضي والعددي الأصح؟",
-                        "en": "Why does the Commutative Property not apply to subtraction? Choose the most accurate mathematical and numerical explanation?"
-                    },
-                    "options": [
-                        {
-                            "ar": "لأن ترتيب الأعداد يؤثر على النتيجة، مثلاً <span class=\"formula\">5 - 3 = 2</span> بينما <span class=\"formula\">3 - 5 = -2</span> وهما غير متساويين",
-                            "en": "Because order affects the result; for example, <span class=\"formula\">5 - 3 = 2</span> whereas <span class=\"formula\">3 - 5 = -2</span>, which are not equal"
-                        },
-                        {
-                            "ar": "لأن النظير الجمعي للعدد دائماً ما يكون سالباً في كل الأحوال",
-                            "en": "Because the additive inverse of a number is always negative under all conditions"
-                        },
-                        {
-                            "ar": "لأن الطرح والجمع لهما نفس القوة والأولوية في PEMDAS",
-                            "en": "Because subtraction and addition have the same precedence in PEMDAS"
-                        },
-                        {
-                            "ar": "لأن الطرح لا يحقق خاصية الانغلاق للأعداد الحقيقية الموجبة",
-                            "en": "Because subtraction does not satisfy the closure property for positive real numbers"
-                        }
+                    q: { ar: 'بعد جمع الحدود المتشابهة في -24c + 12d + 10c + 20d، ما الناتج النهائي المبسط؟', en: 'After combining like terms in -24c + 12d + 10c + 20d, what is the final simplified result?' },
+                    options: [
+                        { ar: '-14c + 32d', en: '-14c + 32d' },
+                        { ar: '-14c - 32d', en: '-14c - 32d' },
+                        { ar: '-34c + 32d', en: '-34c + 32d' },
+                        { ar: '14c + 32d', en: '14c + 32d' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الخاصية التبديلية تعني <span class=\"formula\">a - b = b - a</span> وهذا غير صحيح للأعداد المختلفة لأن أحدهما موجب والآخر سالب.",
-                        "en": "The commutative property requires <span class=\"formula\">a - b = b - a</span>, which is false for distinct numbers because they yield opposite signs."
-                    }
+                    correct: 0,
+                    answer: { ar: 'بجمع حدود c: -24c+10c=-14c، وبجمع حدود d: 12d+20d=32d، فيصبح الناتج النهائي -14c+32d', en: 'Combining the c terms: -24c+10c=-14c, and combining the d terms: 12d+20d=32d, giving the final result -14c+32d' }
                 },
                 {
-                    "q": {
-                        "ar": "قامت كلاً من دانا وأماني بتبسيط التعبير التالي: <span class=\"formula\">4(14a - 10b) - 6(b + 4a)</span>. حصلت دانا على <span class=\"formula\">80a - 46b</span> وحصلت أماني على <span class=\"formula\">50a - 64b</span>. هل أياً منهما صحيح؟",
-                        "en": "Dana and Amani simplified the expression <span class=\"formula\">4(14a - 10b) - 6(b + 4a)</span>. Dana got <span class=\"formula\">80a - 46b</span> and Amani got <span class=\"formula\">50a - 64b</span>. Is either of them correct?"
-                    },
-                    "options": [
-                        {
-                            "ar": "لا أحد منهما صحيح، التبسيط الأصح هو <span class=\"formula\">32a - 46b</span>",
-                            "en": "Neither is correct; the correct simplification is <span class=\"formula\">32a - 46b</span>"
-                        },
-                        {
-                            "ar": "دانا صحيحة لأنها جمعت حدود A بشكل سليم",
-                            "en": "Dana is correct; she combined the A terms correctly"
-                        },
-                        {
-                            "ar": "أماني صحيحة لأن دانا نسيت توزيع الإشارة السالبة لـ 6 على الحد الثاني",
-                            "en": "Amani is correct because Dana forgot to distribute the negative sign of 6 to the second term"
-                        },
-                        {
-                            "ar": "دانا صحيحة وأماني أخطأت في توزيع الـ 4",
-                            "en": "Dana is correct; Amani made an error in distributing the 4"
-                        }
+                    q: { ar: 'عند تبسيط تعبير جبري يحتوي على قوس بمعامل سالب مثل -(a + b)، ما الخطأ الشائع الذي يجب الحذر منه؟', en: 'When simplifying an algebraic expression with a negative coefficient on a parenthesis, like -(a + b), what common mistake should be avoided?' },
+                    options: [
+                        { ar: 'نسيان توزيع الإشارة السالبة على كل حد داخل القوس', en: 'Forgetting to distribute the negative sign to every term inside the parenthesis' },
+                        { ar: 'ضرب المعامل في الحد الأول فقط عن قصد', en: 'Deliberately multiplying the coefficient by only the first term' },
+                        { ar: 'حذف القوس دون إجراء أي عملية على الإطلاق', en: 'Removing the parenthesis without performing any operation at all' },
+                        { ar: 'جمع الحدين داخل القوس قبل التوزيع دائماً كخطوة صحيحة', en: 'Always adding the two terms inside the parenthesis before distributing, as a correct step' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "بالتوزيع: <span class=\"formula\">56a - 40b - 6b - 24a = (56a - 24a) + (-40b - 6b) = 32a - 46b</span>. لذا كلاهما خاطئ.",
-                        "en": "By distribution: <span class=\"formula\">56a - 40b - 6b - 24a = 32a - 46b</span>. Therefore, both are incorrect."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الخطأ الشائع هو توزيع الإشارة السالبة على الحد الأول فقط ونسيان توزيعها على الحد الثاني، مما يؤدي إلى نتيجة خاطئة؛ يجب توزيعها على كل حد داخل القوس', en: 'The common mistake is distributing the negative sign to only the first term and forgetting to distribute it to the second term, leading to an incorrect result; it must be distributed to every term inside the parenthesis' }
                 },
                 {
-                    "q": {
-                        "ar": "ما الذي تمثله خاصية الانغلاق لعملية الجمع للأعداد الحقيقية؟",
-                        "en": "What does the Closure Property of Addition represent for real numbers?"
-                    },
-                    "options": [
-                        {
-                            "ar": "مجموع أي عددين حقيقيين هو دائماً عدد حقيقي أيضاً",
-                            "en": "The sum of any two real numbers is always a real number too"
-                        },
-                        {
-                            "ar": "وجود عنصر محايد لا يغير قيمة العدد المضاف إليه",
-                            "en": "The existence of an identity element that does not change the added value"
-                        },
-                        {
-                            "ar": "إمكانية تغيير ترتيب الأقواس في الجمع المتعدد",
-                            "en": "The ability to change parenthesis placement in multiple additions"
-                        },
-                        {
-                            "ar": "إمكانية إبدال الترتيب دون التأثير على القيمة النهائية",
-                            "en": "The ability to swap order without affecting the final value"
-                        }
+                    q: { ar: 'عند تقييم تعبير مثل a + 3(b + c) - d، ما الذي يسمح بحساب 3(b + c) أولاً بغض النظر عن موقعه في التعبير الكلي؟', en: 'When evaluating an expression like a + 3(b + c) - d, what allows 3(b + c) to be computed first regardless of its position in the overall expression?' },
+                    options: [
+                        { ar: 'ترتيب العمليات الحسابية (الأولوية للأقواس والضرب) بالتوافق مع خاصية التوزيع', en: 'The order of operations (parentheses and multiplication take priority), consistent with the distributive property' },
+                        { ar: 'خاصية الإغلاق فقط دون غيرها', en: 'The closure property alone, with no others involved' },
+                        { ar: 'خاصية المعكوس الجمعي فقط', en: 'The additive inverse property alone' },
+                        { ar: 'لا توجد أي خاصية تبرر ذلك', en: 'No property justifies this at all' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "خاصية الانغلاق تعني أن ناتج العملية الرياضية لعددين من مجموعة معينة يظل ضمن نفس المجموعة.",
-                        "en": "The closure property means that the result of an operation on two numbers of a set remains within that same set."
-                    }
+                    correct: 0,
+                    answer: { ar: 'يُحسب الحد 3(b+c) أولاً باتباع ترتيب العمليات الحسابية الذي يعطي الأولوية للأقواس والضرب، وذلك بالتوافق مع خاصية التوزيع التي تُستخدم لتوسيع 3(b+c) إلى 3b+3c عند اللزوم', en: 'The term 3(b+c) is computed first by following the order of operations, which gives priority to parentheses and multiplication, consistent with the distributive property used to expand 3(b+c) into 3b+3c when needed' }
                 }
             ]
         }
@@ -813,6 +444,8 @@ function prepareShuffledExam() {
             globalIdx++;
         });
     });
+    
+    console.log('✅ تم خلط الأسئلة والخيارات بنجاح');
 }
 
 function reshuffleExam() {
@@ -849,8 +482,8 @@ function setLanguage(lang) {
 function renderExam() {
     const container = document.getElementById('exam-content');
     const labels = {
-        ar: { option: ['أ', 'ب', 'ج', 'د'], answer: '✅ الإجابة الصحيحة:' },
-        en: { option: ['A', 'B', 'C', 'D'], answer: '✅ Correct Answer:' }
+        ar: { option: ['أ', 'ب', 'ج', 'د'], answer: '✅ الإجابة:' },
+        en: { option: ['A', 'B', 'C', 'D'], answer: '✅ Answer:' }
     };
     const lbl = labels[currentLang];
     const isRTL = currentLang === 'ar';
@@ -861,13 +494,13 @@ function renderExam() {
     examData.sections.forEach((section) => {
         html += `
         <section class="bg-white p-6 rounded-xl shadow-lg">
-            <h2 class="text-xl font-bold mb-4 text-teal-700">${section.title[currentLang]}</h2>
+            <h2 class="text-xl font-bold mb-4 text-orange-700">${section.title[currentLang]}</h2>
             <ol class="space-y-4 text-sm">`;
             
         section.questions.forEach((q) => {
             const borderSide = isRTL ? 'border-r-4 pr-4' : 'border-l-4 pl-4';
             html += `
-                <li class="${borderSide} border-teal-500 py-2" id="q-${globalIdx}">
+                <li class="${borderSide} border-orange-500 py-2" id="q-${globalIdx}">
                     <strong>${globalIdx + 1}.</strong> ${q.q[currentLang]}<br>`;
                     
             q.options.forEach((opt, oIdx) => {
@@ -932,17 +565,15 @@ function gradeExam() {
                 correctCount++;
                 li.classList.add('correct');
                 li.classList.remove('incorrect');
-            } else {
-                li.classList.add('incorrect');
-                li.classList.remove('correct');
-            }
-
-            if (isCorrect) {
+                
                 if (i < 4) sec1++;
                 else if (i < 8) sec2++;
                 else if (i < 12) sec3++;
                 else if (i < 16) sec4++;
                 else sec5++;
+            } else {
+                li.classList.add('incorrect');
+                li.classList.remove('correct');
             }
         }
     }
@@ -950,7 +581,7 @@ function gradeExam() {
     const score = (correctCount / 20) * 100;
     const successRate = Math.round(score);
     
-    document.getElementById('res-total').textContent = `${successRate} / 100`;
+    document.getElementById('res-total').textContent = `${Math.round(score)} / 100`;
     document.getElementById('res-name').textContent = document.getElementById('studentName').value || (currentLang === 'ar' ? 'طالب' : 'Student');
     document.getElementById('res-date').textContent = new Date().toLocaleDateString(currentLang === 'ar' ? 'ar-AE' : 'en-US');
     
@@ -995,85 +626,74 @@ function sendResultsToEmail() {
     const badge = document.getElementById('success-badge').textContent;
 
     const sectionNames = {
-        ar: [
-            "الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات",
-            "الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة",
-            "الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل",
-            "الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية",
-            "الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي"
-        ],
-        en: [
-            "Part 1: Basic Concepts, Rules, and Definitions",
-            "Part 2: Calculations and Exact Numerical Solutions",
-            "Part 3: Advanced Skills, Applications, and Problems",
-            "Part 4: Mathematical Modeling, Graphing, and Practical Problems",
-            "Part 5: Higher-Order Thinking, Analysis, and Logical Connections"
-        ]
+        ar: ['تصنيف الأرقام الحقيقية', 'الخصائص الأساسية للأرقام الحقيقية', 'المعكوس الجمعي والضربي', 'خاصية التوزيع وتطبيقاتها', 'تبسيط التعابير الجبرية'],
+        en: ['Classifying Real Numbers', 'Basic Properties of Real Numbers', 'Additive & Multiplicative Inverses', 'The Distributive Property & Applications', 'Simplifying Algebraic Expressions']
     };
     const currentSectionNames = sectionNames[currentLang];
 
     let answersHTML = `
-        <div style="font-family: 'Segoe UI', Tahoma, Arial, sans-serif; direction: \${currentLang === 'ar' ? 'rtl' : 'ltr'}; text-align: \${currentLang === 'ar' ? 'right' : 'left'};">
-            <div style="background: linear-gradient(135deg, #0d9488, #0891b2); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
-                <h2 style="margin: 0; font-size: 22px;">⚡ \${currentLang === 'ar' ? 'نتيجة امتحان الرياضيات والتحليل التفاعلي' : 'Math Interactive Exam Result'}</h2>
-                <p style="margin: 5px 0 0 0; opacity: 0.9;">\${currentLang === 'ar' ? 'رياضيات الصف الحادي عشر عام | الفصل الدراسي الأول' : 'Grade 11 General Math | Term 1'}</p>
-                <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.8;">🔀 \${currentLang === 'ar' ? 'تم خلط الأسئلة تلقائياً' : 'Questions were randomly shuffled'}</p>
+        <div style="font-family: 'Segoe UI', Tahoma, Arial, sans-serif; direction: ${currentLang === 'ar' ? 'rtl' : 'ltr'};">
+            <div style="background: linear-gradient(135deg, #ea580c, #d97706); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
+                <h2 style="margin: 0; font-size: 22px;">🧮 ${currentLang === 'ar' ? 'نتيجة امتحان خصائص الأرقام الحقيقية' : 'Properties of Real Numbers Exam Result'}</h2>
+                <p style="margin: 5px 0 0 0; opacity: 0.9;">${currentLang === 'ar' ? 'Properties of Real Numbers' : 'Properties of Real Numbers'}</p>
+                <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.8;">🔀 ${currentLang === 'ar' ? 'تم خلط الأسئلة تلقائياً' : 'Questions were randomly shuffled'}</p>
             </div>
             
-            <div style="background: #f0fdfa; padding: 15px; border: 1px solid #99f6e4;">
+            <div style="background: #fff7ed; padding: 15px; border: 1px solid #fed7aa;">
                 <table style="width: 100%; border-collapse: collapse;">
                     <tr>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '👤 الاسم:' : '👤 Name:'}</td>
-                        <td style="padding: 8px;">\${name}</td>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '🏫 الشعبة:' : '🏫 Class:'}</td>
-                        <td style="padding: 8px;">\${studentClass}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #c2410c;">${currentLang === 'ar' ? '👤 الاسم:' : '👤 Name:'}</td>
+                        <td style="padding: 8px;">${name}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #c2410c;">${currentLang === 'ar' ? '🏫 الشعبة:' : '🏫 Class:'}</td>
+                        <td style="padding: 8px;">${studentClass}</td>
                     </tr>
                     <tr>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '📅 التاريخ:' : '📅 Date:'}</td>
-                        <td style="padding: 8px;">\${date}</td>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '🏆 التقدير:' : '🏆 Grade:'}</td>
-                        <td style="padding: 8px;">\${badge}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #c2410c;">${currentLang === 'ar' ? '📅 التاريخ:' : '📅 Date:'}</td>
+                        <td style="padding: 8px;">${date}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #c2410c;">${currentLang === 'ar' ? '🏆 التقدير:' : '🏆 Grade:'}</td>
+                        <td style="padding: 8px;">${badge}</td>
                     </tr>
                 </table>
             </div>
 
             <div style="background: white; padding: 20px; text-align: center; border-bottom: 2px solid #e5e7eb;">
                 <div style="display: inline-block; margin: 0 15px;">
-                    <div style="font-size: 32px; font-weight: bold; color: #0d9488;">\${score}</div>
-                    <div style="color: #6b7280; font-size: 13px;">\${currentLang === 'ar' ? 'الدرجة الكلية' : 'Total Score'}</div>
+                    <div style="font-size: 32px; font-weight: bold; color: #ea580c;">${score}</div>
+                    <div style="color: #6b7280; font-size: 13px;">${currentLang === 'ar' ? 'الدرجة الكلية' : 'Total Score'}</div>
                 </div>
                 <div style="display: inline-block; margin: 0 15px;">
-                    <div style="font-size: 32px; font-weight: bold; color: #059669;">\${successRate}%</div>
-                    <div style="color: #6b7280; font-size: 13px;">\${currentLang === 'ar' ? 'نسبة النجاح' : 'Success Rate'}</div>
+                    <div style="font-size: 32px; font-weight: bold; color: #059669;">${successRate}%</div>
+                    <div style="color: #6b7280; font-size: 13px;">${currentLang === 'ar' ? 'نسبة النجاح' : 'Success Rate'}</div>
                 </div>
             </div>
 
             <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db;">
-                \${currentLang === 'ar' ? '📝 تفاصيل الإجابات' : '📝 Answer Details'}
+                📝 ${currentLang === 'ar' ? 'تفاصيل الإجابات' : 'Answer Details'}
             </h3>
             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
                 <thead>
-                    <tr style="background: #0d9488; color: white;">
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 8%;">#</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 32%;">\${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">\${currentLang === 'ar' ? 'الإجابة' : 'Answer'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">\${currentLang === 'ar' ? 'الصحيحة' : 'Correct'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">\${currentLang === 'ar' ? 'النتيجة' : 'Status'}</th>
+                    <tr style="background: #ea580c; color: white;">
+                        <th style="padding: 10px; border: 1px solid #c2410c; width: 8%;">#</th>
+                        <th style="padding: 10px; border: 1px solid #c2410c; width: 32%;">${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
+                        <th style="padding: 10px; border: 1px solid #c2410c; width: 15%;">${currentLang === 'ar' ? 'الإجابة' : 'Answer'}</th>
+                        <th style="padding: 10px; border: 1px solid #c2410c; width: 15%;">${currentLang === 'ar' ? 'الصحيحة' : 'Correct'}</th>
+                        <th style="padding: 10px; border: 1px solid #c2410c; width: 15%;">${currentLang === 'ar' ? 'النتيجة' : 'Status'}</th>
                     </tr>
                 </thead>
                 <tbody>
     `;
 
-    let sectionScores = [sec1, sec2, sec3, sec4, sec5];
+    let sectionScores = [0, 0, 0, 0, 0];
     let sectionTotals = [4, 4, 4, 4, 4];
 
     for (let i = 0; i < 20; i++) {
-        const selected = document.querySelector(`input[name="q\${i}"]:checked`);
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
         const selectedValue = selected ? selected.value : '-';
         const correctValue = correctAnswersMap[i];
         const isCorrect = selectedValue === correctValue;
         
         const sectionIndex = Math.floor(i / 4);
+        if (isCorrect) sectionScores[sectionIndex]++;
 
         const rowBg = i % 2 === 0 ? '#f9fafb' : '#ffffff';
         const statusBg = isCorrect ? '#dcfce7' : '#fee2e2';
@@ -1084,13 +704,13 @@ function sendResultsToEmail() {
             : (currentLang === 'ar' ? 'خطأ' : 'Wrong');
 
         answersHTML += `
-            <tr style="background: \${rowBg};">
-                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">\${i + 1}</td>
-                <td style="padding: 8px; border: 1px solid #e5e7eb;">\${currentSectionNames[sectionIndex]}</td>
-                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">\${selectedValue.toUpperCase()}</td>
-                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #059669;">\${correctValue.toUpperCase()}</td>
-                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; background: \${statusBg}; color: \${statusColor}; font-weight: bold;">
-                    \${statusIcon} \${statusText}
+            <tr style="background: ${rowBg};">
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">${i + 1}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">${currentSectionNames[sectionIndex]}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">${selectedValue.toUpperCase()}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #059669;">${correctValue.toUpperCase()}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; background: ${statusBg}; color: ${statusColor}; font-weight: bold;">
+                    ${statusIcon} ${statusText}
                 </td>
             </tr>
         `;
@@ -1100,15 +720,15 @@ function sendResultsToEmail() {
                 </tbody>
             </table>
 
-            <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db; border-top: 3px solid #0d9488;">
-                📊 \${currentLang === 'ar' ? 'تفصيل الأداء' : 'Performance Breakdown'}
+            <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db; border-top: 3px solid #ea580c;">
+                📊 ${currentLang === 'ar' ? 'تفصيل الأداء' : 'Performance Breakdown'}
             </h3>
             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
                 <thead>
-                    <tr style="background: #7c3aed; color: white;">
-                        <th style="padding: 10px; border: 1px solid #6d28d9;">\${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
-                        <th style="padding: 10px; border: 1px solid #6d28d9; width: 20%;">\${currentLang === 'ar' ? 'النتيجة' : 'Score'}</th>
-                        <th style="padding: 10px; border: 1px solid #6d28d9; width: 20%;">\${currentLang === 'ar' ? 'النسبة' : 'Percentage'}</th>
+                    <tr style="background: #d97706; color: white;">
+                        <th style="padding: 10px; border: 1px solid #b45309;">${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
+                        <th style="padding: 10px; border: 1px solid #b45309; width: 20%;">${currentLang === 'ar' ? 'النتيجة' : 'Score'}</th>
+                        <th style="padding: 10px; border: 1px solid #b45309; width: 20%;">${currentLang === 'ar' ? 'النسبة' : 'Percentage'}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1120,16 +740,16 @@ function sendResultsToEmail() {
         const rowBg = i % 2 === 0 ? '#f9fafb' : '#ffffff';
         
         answersHTML += `
-            <tr style="background: \${rowBg};">
-                <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">\${currentSectionNames[i]}</td>
-                <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #0d9488;">
-                    \${sectionScores[i]} / \${sectionTotals[i]}
+            <tr style="background: ${rowBg};">
+                <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">${currentSectionNames[i]}</td>
+                <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #ea580c;">
+                    ${sectionScores[i]} / ${sectionTotals[i]}
                 </td>
                 <td style="padding: 10px; border: 1px solid #e5e7eb;">
                     <div style="background: #e5e7eb; border-radius: 10px; overflow: hidden; height: 20px; position: relative;">
-                        <div style="background: \${barColor}; width: \${percentage}%; height: 100%;"></div>
+                        <div style="background: ${barColor}; width: ${percentage}%; height: 100%;"></div>
                         <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 11px; font-weight: bold; color: #1f2937;">
-                            \${percentage}%
+                            ${percentage}%
                         </span>
                     </div>
                 </td>
@@ -1143,8 +763,8 @@ function sendResultsToEmail() {
 
             <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 15px; border-radius: 0 0 10px 10px; border-top: 2px solid #f59e0b;">
                 <p style="margin: 0; color: #78350f; text-align: center; font-size: 13px;">
-                    💡 <strong>\${currentLang === 'ar' ? 'ملاحظة:' : 'Note:'}</strong> 
-                    \${currentLang === 'ar' 
+                    💡 <strong>${currentLang === 'ar' ? 'ملاحظة:' : 'Note:'}</strong> 
+                    ${currentLang === 'ar' 
                         ? 'تم إرسال هذا التقرير تلقائياً من منصة 4U التعليمية | Mr. Mohammed Hesham' 
                         : 'This report was automatically sent from 4U Educational Platform | Mr. Mohammed Hesham'}
                 </p>
